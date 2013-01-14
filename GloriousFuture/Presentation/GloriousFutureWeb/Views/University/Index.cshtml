@@ -1,0 +1,222 @@
+﻿@model IEnumerable<GF.Domain.Context.University>
+
+@{
+    ViewBag.Title = "大学";
+}
+
+@using (Ajax.BeginForm("Search", "University", new AjaxOptions { UpdateTargetId = "searchResults", InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace, HttpMethod = "POST" }))
+{
+        <span>院校所在地</span>
+        @Html.DropDownList("Id", ViewBag.Provinces as SelectList, "全部", htmlAttributes: new { value = Guid.Empty })
+        <span>大学类型</span>
+        <select name = "universityType"  id= "universityType">
+            @foreach (var type in ViewBag.UniversityTypes)
+            {
+                if (ViewBag.UniversityType.ToString() == type.Value)
+                {
+                    @Html.Raw("<option value = " + type.Value + " selected='selected'>" + type.Value + "</option>");
+                }
+                else
+                {
+                     @Html.Raw("<option value = " + type.Value + ">" + type.Value + "</option>");
+                }
+            }
+        </select>
+        <span>院校性质</span>
+        <select name = "SchoolType" id = "SchoolType" >
+            @foreach (var schoolType in ViewBag.SchoolTypes)
+            {
+                if (ViewBag.SchoolType.ToString() == schoolType.Value)
+                {
+                    @Html.Raw("<option value = " + schoolType.Value + " selected='selected'>" + schoolType.Value + "</option>");
+                }
+                else
+                {
+                     @Html.Raw("<option value = " + schoolType.Value + ">" + schoolType.Value + "</option>");
+                }
+            }
+        </select>
+        <span>211工程</span>
+        <select name = "Is211" id = "Is211" >
+            <option  value = "null" selected="selected">全部</option>
+            <option value = "True">是</option>
+            <option value = "False">否</option>
+        </select>
+        <span>985工程</span>
+        <select name = "Is985" id = "Is985">
+            <option  value = "null" selected="selected">全部</option>
+            <option value = "True">是</option>
+            <option value = "False">否</option>
+        </select>
+        <span>院校举办者</span>
+        <select name = "IsNational" id = "IsNational" >
+            <option  value = "null" selected="selected">全部</option>
+            <option value = "True">公办</option>
+            <option value = "False">民办</option>
+        </select>
+        <p>
+            @{
+                if (!string.IsNullOrEmpty(ViewBag.UniversityName))
+                {
+                    @Html.Raw("<input type='text' name='universityName' id = 'universityName' value='" + @ViewBag.UniversityName + "' />")
+                }
+                else
+                {
+                     <input type="text" name="universityName" id = "universityName" value= "请输入院校名称" onclick = "if(this.value=='请输入院校名称')this.value=''" onblur="if(this.value=='')this.value='请输入院校名称'" />
+                }
+              }
+            <input type ="submit" value = "搜索" />
+        </p>
+}
+
+<div>
+    <h2>院校查询结果</h2>
+
+        @if (ViewBag.TotalPagesCount == 0)
+        {
+            <div>无相关院校</div>
+        }
+        else
+        {
+            <table id="searchResults">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        所在地
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UniversityType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SchoolType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EducationLevel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Subjection)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Is985)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Is211)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsNational)
+                    </th>
+                    <th></th>
+                </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UniversityType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EducationLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subjection)
+                </td>
+                <td>
+                      @if (item.Is985)
+                      {
+                            @Html.Raw("是")
+                      }
+                      else
+                      {
+                             @Html.Raw("否")
+                      }
+                </td>
+                <td>
+                     @if (item.Is211)
+                     {
+                            @Html.Raw("是")
+                     }
+                     else
+                     {
+                            @Html.Raw("否")
+                     }
+                </td>
+                  <td>
+                    @if (item.IsNational)
+                    {
+                           @Html.Raw("公办")
+                    }
+                    else
+                    {
+                           @Html.Raw("民办")
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("招生信息", "Details", new { universityId = item.Id }) |
+                    @Html.ActionLink("录取分数线", "Delete", new { universityId = item.Id })
+                </td>
+            </tr>
+            }
+            </table>
+            
+            @Html.Raw("第" + (@ViewBag.PageIndex + 1) + "页 共" + @ViewBag.TotalPagesCount + " 页");
+            if (ViewBag.TotalPagesCount == 1)
+            { 
+            }
+            else if (ViewBag.PageIndex == ViewBag.TotalPagesCount - 1)
+            {
+                @Ajax.ActionLink("上一页", "Search", "University", new { universityName = @ViewBag.UniversityName, id = ViewBag.Id, universityType = @ViewBag.UniversityType, schoolType = @ViewBag.SchoolType, is211 = @ViewBag.Is211, is985 = @ViewBag.Is985, isNational = @ViewBag.IsNational, pageIndex = @ViewBag.PageIndex - 1 },
+                    new AjaxOptions { UpdateTargetId = "searchResults", InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace, HttpMethod = "GET" }, htmlAttributes: new { id = "previous" });
+            }
+            else if (ViewBag.PageIndex == 0)
+            {
+                @Ajax.ActionLink("下一页", "Search", "University", new { universityName = @ViewBag.UniversityName, id = ViewBag.Id, universityType = @ViewBag.UniversityType, schoolType = @ViewBag.SchoolType, is211 = @ViewBag.Is211, is985 = @ViewBag.Is985, isNational = @ViewBag.IsNational, pageIndex = @ViewBag.PageIndex + 1 },
+                        new AjaxOptions { UpdateTargetId = "searchResults", InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace, HttpMethod = "GET" }, htmlAttributes: new { id = "next" });
+            }
+            else if (ViewBag.PageIndex > 0 && ViewBag.PageIndex < ViewBag.TotalPagesCount)
+            {
+                @Ajax.ActionLink("上一页", "Search", "University", new { universityName = @ViewBag.UniversityName, id = ViewBag.Id, universityType = @ViewBag.UniversityType, schoolType = @ViewBag.SchoolType, is211 = @ViewBag.Is211, is985 = @ViewBag.Is985, isNational = @ViewBag.IsNational, pageIndex = @ViewBag.PageIndex - 1 },
+                    new AjaxOptions { UpdateTargetId = "searchResults", InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace, HttpMethod = "GET" }, htmlAttributes: new { id = "previous" });
+                @Ajax.ActionLink("下一页", "Search", "University", new { universityName = @ViewBag.UniversityName, id = ViewBag.Id, universityType = @ViewBag.UniversityType, schoolType = @ViewBag.SchoolType, is211 = @ViewBag.Is211, is985 = @ViewBag.Is985, isNational = @ViewBag.IsNational, pageIndex = @ViewBag.PageIndex + 1 },
+                        new AjaxOptions { UpdateTargetId = "searchResults", InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace, HttpMethod = "GET" }, htmlAttributes: new { id = "next" });
+            }
+        }
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var options = document.getElementById("Is211").options;
+        var selectedValue = '@ViewBag.Is211';
+        for (var i = 0; i < options.length; i++) {
+                if(options[i].value == selectedValue){
+                    options[i].selected = true;
+                }
+            }
+
+            var options = document.getElementById("Is985").options;
+            var selectedValue = '@ViewBag.Is985';
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].value == selectedValue) {
+                    options[i].selected = true;
+                }
+            }
+
+            var options = document.getElementById("IsNational").options;
+            var selectedValue = '@ViewBag.IsNational';
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].value == selectedValue) {
+                    options[i].selected = true;
+                }
+            }
+    });
+</script>

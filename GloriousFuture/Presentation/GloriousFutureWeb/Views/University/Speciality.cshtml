@@ -1,0 +1,106 @@
+﻿@model IEnumerable<GF.Domain.Context.SpecialityDTO>
+
+@{
+    ViewBag.Title = "Speciality";
+}
+
+<h2>专业信息</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecialityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Introduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Years)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UniversityType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Is211)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Is985)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEducationDepartment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecialityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Introduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Years)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityType)
+        </td>
+        <td>
+             @if (item.Is211)
+             {
+                    @Html.Raw("是")
+             }
+             else
+             {
+                     @Html.Raw("否")
+             }
+        </td>
+        <td>
+            @if (item.Is985)
+            {
+                    @Html.Raw("是")
+            }
+            else
+            {
+                     @Html.Raw("否")
+            }
+        </td>
+        <td>
+            @if (item.IsEducationDepartment)
+            {
+                    @Html.Raw("是")
+            }
+            else
+            {
+                    @Html.Raw("否")
+            }
+        </td>
+    </tr>
+}
+
+</table>

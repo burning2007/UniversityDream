@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="f6448962-bde9-482f-95e7-ceb80db6ed07" name="UMLUCD" linkedPackageId="53cf745e-edc2-49eb-a76c-18524a6f7f2f" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="479efda4-e407-42d9-9019-266aebbc0041">
+      <profileInstance Id="5ba48949-0c3e-4326-894c-9e807126d766" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="d8a78a41-86c9-490e-9a33-6f9e7b374579">
+      <profileInstance Id="5da17e6e-3ccc-4abe-842e-deaea7c9a3ff" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="1cb7bc38-395d-4aee-8069-a370eca7002b" name="Student" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e7290de0-d3a2-4722-bd21-6fa876825f8e" />
+        <targetEnds>
+          <association Id="2df8f531-b6b5-4949-95a1-8e74ae4d86c2" isDerived="false" sourceEndRoleName="Student" targetEndRoleName="Create/modify application based on the search result" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="98ffeffa-7f33-40d4-8ffd-53d638edea56" LastKnownName="Create/modify application based on the search result" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4a16bd31-2e6d-45ce-b667-9af0506bcf66" name="Student" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3b2f7ff3-9237-4812-9306-bc17d3f53424" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ebabe462-abc5-477b-86e2-b90b0754dcc6" name="Create/modify application based on the search result" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2680ef28-30ca-40ad-be96-0eef60681e2c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4ab1a1f0-8cb4-4505-b3a5-8ff4738a4db0" />
+          </association>
+          <association Id="1db63f05-4b29-4b65-8ab8-f56fa0a446f3" isDerived="false" sourceEndRoleName="Student" targetEndRoleName="Search which speciality of a university is suitable for him (planned enroll number and score are suitable)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7775ca61-bb65-4480-ba0c-88362db24d26" LastKnownName="View which speciality of a university is suitable for him (planned enroll number and score are suitable, each page is 3 specialities, pagination)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="661efa78-f991-4802-9cf3-e9b81993ea04" name="Student" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2ab2dda6-cbc0-4d47-af94-165c4174e44b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8cd2df1c-4164-4b3b-b254-638cf8f61b9f" name="Search which speciality of a university is suitable for him (planned enroll number and score are suitable)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6bef8462-44e3-4d44-8b8b-8e988da5dbbc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="abbac9f4-a016-4d7d-81c1-5b880bf7d48d" />
+          </association>
+          <association Id="ad08608b-4227-422f-984c-e41925fb7ae6" isDerived="false" sourceEndRoleName="Student" targetEndRoleName="view the statistic of his application(seperate the order of application)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="92694ba8-cfe4-4094-a4bc-744124b4b996" LastKnownName="view the statistic of his application(seperate the order of application)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c8dbf89b-6db4-4916-bb57-aef71c9fadf8" name="Student" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="27ee42ad-7cb1-4fac-84e2-25ac0ac9c3b5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="62620dbc-0221-46fb-8a49-f0f3f8f19abb" name="view the statistic of his application(seperate the order of application)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d4ce4a62-2bac-4be3-9e1e-64c6028493dc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="136138d6-9e81-4ca1-ad09-42ff40cdb6ec" />
+          </association>
+          <association Id="2a31d1ca-c2b8-4959-89c0-3ddc53e54928" isDerived="false" sourceEndRoleName="Student" targetEndRoleName="create/modify/delete a pplication" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7a9dbb83-1e82-4ffe-94ac-e323b9858b1d" LastKnownName="create/modify/delete application" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="34b4d4c0-0d76-4799-867e-7c1000eb9082" name="Student" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cdc3db98-6a11-4b55-87c8-b017f4d189d8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="39d55640-8128-4273-9c80-f3778b7cd8af" name="create/modify/delete a pplication" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="242e8d5a-5071-4cea-9dd4-9ba1a1cc4d5e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b15d81f8-1a2d-4095-a161-eb5830f7c267" />
+          </association>
+          <association Id="ad1d3331-1c2a-4efc-b6fe-c37860fbdfd8" isDerived="false" sourceEndRoleName="Student" targetEndRoleName="Input score after score published by government" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c0f8f3a3-36ef-45d5-a436-261ff21d2210" LastKnownName="Input score after score published by government, must verify the id card number first" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c1ef3d56-9d73-406a-9aec-5c2752b22e24" name="Student" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="425a02b9-fe1d-4f32-9eff-06aa5250e9e1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a7c980c4-b3b0-4a10-9775-03ab1ac1c084" name="Input score after score published by government" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="203fbf90-60ee-40d8-8d6a-2da0ec3f128b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ce0dc1ac-71f5-477b-8959-7a07cc31f8d2" />
+          </association>
+          <association Id="db3de0e7-c6eb-4f5a-ba78-ced59545a4f6" isDerived="false" sourceEndRoleName="Student" targetEndRoleName="Register/login (one identity card number only can register one account)" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8c916380-f541-44ae-936a-0376a8f84543" LastKnownName="Register/login (one identity card number only can register one account, email, id card number is not required when register)" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f8cb0f7c-9e07-4645-b6be-c74634dd1462" name="Student" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ef2d1657-a796-4667-9b13-036556611164" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="90b28216-7fc6-4c6c-9f13-ad1028a7a12f" name="Register/login (one identity card number only can register one account)" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3ba9f3ce-500b-48da-8195-0ccd077eb99c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="04c4b3dd-d419-441e-9d8e-a4ff769f075e" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8c916380-f541-44ae-936a-0376a8f84543" name="Register/login (one identity card number only can register one account, email, id card number is not required when register)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="28c36389-626e-41fc-8613-16284f86a484" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c0f8f3a3-36ef-45d5-a436-261ff21d2210" name="Input score after score published by government, must verify the id card number first" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b11093b4-879e-41f5-a5b5-d43e5bd66031" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7a9dbb83-1e82-4ffe-94ac-e323b9858b1d" name="create/modify/delete application" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d1e48994-0cf4-4313-a4e6-487f3e1c47b0" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="92694ba8-cfe4-4094-a4bc-744124b4b996" name="view the statistic of his application(seperate the order of application)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c6f5b4f3-e0b2-447c-b25d-4bea05350bab" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7775ca61-bb65-4480-ba0c-88362db24d26" name="View which speciality of a university is suitable for him (planned enroll number and score are suitable, each page is 3 specialities, pagination)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="01754be6-e3e2-4510-8a1e-779b8da991c2" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="98ffeffa-7f33-40d4-8ffd-53d638edea56" name="Create/modify application based on the search result" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="49c842d2-1901-4715-8289-a6bbaf1a9f28" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="53cf745e-edc2-49eb-a76c-18524a6f7f2f" name="GF.Modeling">
+    <elementDefinition Id="d7cfcbb6-fa5f-485a-b716-77d73598e9a2" />
+  </package>
+</useCaseModelRoot>

@@ -1,0 +1,18 @@
+﻿@if (Request.IsAuthenticated) {
+    <text>
+        您好, @User.Identity.Name
+        @* @Html.ActionLink(User.Identity.Name, "Manage", "User", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!*@
+        @Html.ActionLink("用户设置", "Manage", "User", new { userName = User.Identity.Name }, htmlAttributes: null)
+        @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">退出</a>
+        }
+    </text>    
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("注册", "Register", "User", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("登录", "Login", "User", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

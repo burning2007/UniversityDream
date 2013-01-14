@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GF.Domain.Context.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="GFDomainContextStoreContainer">
+    <EntitySet Name="Accounts" EntityType="GF.Domain.Context.Store.Accounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Achievements" EntityType="GF.Domain.Context.Store.Achievements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AchivementHistories" EntityType="GF.Domain.Context.Store.AchivementHistories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Applications" EntityType="GF.Domain.Context.Store.Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApplicationStatistics" EntityType="GF.Domain.Context.Store.ApplicationStatistics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EnrollPlans" EntityType="GF.Domain.Context.Store.EnrollPlans" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScorePublishes" EntityType="GF.Domain.Context.Store.ScorePublishes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Specialities" EntityType="GF.Domain.Context.Store.Specialities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecialityAcceptanceStatistics" EntityType="GF.Domain.Context.Store.SpecialityAcceptanceStatistics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Universities" EntityType="GF.Domain.Context.Store.Universities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UniversityAcceptanceStatistics" EntityType="GF.Domain.Context.Store.UniversityAcceptanceStatistics" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AchievementUser" Association="GF.Domain.Context.Store.FK_AchievementUser">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Achievements" EntitySet="Achievements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AchivementHistoryAccount" Association="GF.Domain.Context.Store.FK_AchivementHistoryAccount">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="AchivementHistories" EntitySet="AchivementHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationSpeciality" Association="GF.Domain.Context.Store.FK_ApplicationSpeciality">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationUniversity" Association="GF.Domain.Context.Store.FK_ApplicationUniversity">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplicationUser" Association="GF.Domain.Context.Store.FK_ApplicationUser">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollPlanSpeciality" Association="GF.Domain.Context.Store.FK_EnrollPlanSpeciality">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="EnrollPlans" EntitySet="EnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollPlanUniversity" Association="GF.Domain.Context.Store.FK_EnrollPlanUniversity">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="EnrollPlans" EntitySet="EnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialityAcceptanceStatisticSpeciality" Association="GF.Domain.Context.Store.FK_SpecialityAcceptanceStatisticSpeciality">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="SpecialityAcceptanceStatistics" EntitySet="SpecialityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialityEnrollStatisticUniversityEnrollStatistic" Association="GF.Domain.Context.Store.FK_SpecialityEnrollStatisticUniversityEnrollStatistic">
+      <End Role="UniversityAcceptanceStatistics" EntitySet="UniversityAcceptanceStatistics" />
+      <End Role="SpecialityAcceptanceStatistics" EntitySet="SpecialityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityEnrollStatisticUniversity" Association="GF.Domain.Context.Store.FK_UniversityEnrollStatisticUniversity">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="UniversityAcceptanceStatistics" EntitySet="UniversityAcceptanceStatistics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AccountName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="QQ" Type="nvarchar(max)" />
+    <Property Name="Coins" Type="int" Nullable="false" />
+    <Property Name="Zone_City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Zone_Province" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsLocked" Type="bit" Nullable="false" />
+    <Property Name="IdentityCardNumber" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Achievements">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Score" Type="float" Nullable="false" />
+    <Property Name="SpecialityType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ACEENumber" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AchivementHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="AccountId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Score" Type="float" Nullable="false" />
+    <Property Name="SpecialityType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ACEENumber" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ApplicationSequence" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsSuccess" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplicationStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TotalQuantity" Type="int" Nullable="false" />
+    <Property Name="SuccessQuantity" Type="int" Nullable="false" />
+    <Property Name="FailQuantity" Type="int" Nullable="false" />
+    <Property Name="ApplicationSequence" Type="int" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnrollPlans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PlannedEnrollNumber" Type="int" Nullable="false" />
+    <Property Name="UniversitySpecialityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDirectional" Type="bit" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScorePublishes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PublishDate" Type="datetime" Nullable="false" />
+    <Property Name="CollegeEntranceExamTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specialities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialityAcceptanceStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UniversityEnrollStatisticId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="HighestScore" Type="float" Nullable="false" />
+    <Property Name="LowestScore" Type="float" Nullable="false" />
+    <Property Name="AverageScore" Type="float" Nullable="false" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Universities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UniversityType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kind" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Website" Type="nvarchar(max)" />
+    <Property Name="BriefIntroduction" Type="nvarchar(max)" />
+    <Property Name="IsEducationDepartment" Type="bit" Nullable="false" />
+    <Property Name="Is985" Type="bit" Nullable="false" />
+    <Property Name="Is211" Type="bit" Nullable="false" />
+    <Property Name="Zone_City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Zone_Province" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UniversityAcceptanceStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+    <Property Name="HighestScore" Type="float" Nullable="false" />
+    <Property Name="LowestScore" Type="float" Nullable="false" />
+    <Property Name="AverageScore" Type="float" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExceedScore" Type="float" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AchievementUser">
+    <End Role="Accounts" Type="GF.Domain.Context.Store.Accounts" Multiplicity="1" />
+    <End Role="Achievements" Type="GF.Domain.Context.Store.Achievements" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievements">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AchivementHistoryAccount">
+    <End Role="Accounts" Type="GF.Domain.Context.Store.Accounts" Multiplicity="1" />
+    <End Role="AchivementHistories" Type="GF.Domain.Context.Store.AchivementHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AchivementHistories">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationSpeciality">
+    <End Role="Specialities" Type="GF.Domain.Context.Store.Specialities" Multiplicity="1" />
+    <End Role="Applications" Type="GF.Domain.Context.Store.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationUniversity">
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="1" />
+    <End Role="Applications" Type="GF.Domain.Context.Store.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplicationUser">
+    <End Role="Accounts" Type="GF.Domain.Context.Store.Accounts" Multiplicity="1" />
+    <End Role="Applications" Type="GF.Domain.Context.Store.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollPlanSpeciality">
+    <End Role="Specialities" Type="GF.Domain.Context.Store.Specialities" Multiplicity="1" />
+    <End Role="EnrollPlans" Type="GF.Domain.Context.Store.EnrollPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EnrollPlans">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollPlanUniversity">
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="1" />
+    <End Role="EnrollPlans" Type="GF.Domain.Context.Store.EnrollPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EnrollPlans">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialityAcceptanceStatisticSpeciality">
+    <End Role="Specialities" Type="GF.Domain.Context.Store.Specialities" Multiplicity="1" />
+    <End Role="SpecialityAcceptanceStatistics" Type="GF.Domain.Context.Store.SpecialityAcceptanceStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityAcceptanceStatistics">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialityEnrollStatisticUniversityEnrollStatistic">
+    <End Role="UniversityAcceptanceStatistics" Type="GF.Domain.Context.Store.UniversityAcceptanceStatistics" Multiplicity="1" />
+    <End Role="SpecialityAcceptanceStatistics" Type="GF.Domain.Context.Store.SpecialityAcceptanceStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UniversityAcceptanceStatistics">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityAcceptanceStatistics">
+        <PropertyRef Name="UniversityEnrollStatisticId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityEnrollStatisticUniversity">
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="1" />
+    <End Role="UniversityAcceptanceStatistics" Type="GF.Domain.Context.Store.UniversityAcceptanceStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityAcceptanceStatistics">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_ApplicationSequenceStatistic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

@@ -1,0 +1,992 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GF.Domain.Context.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="GFDomainContextStoreContainer">
+    <EntitySet Name="Achievements" EntityType="GF.Domain.Context.Store.Achievements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Applications" EntityType="GF.Domain.Context.Store.Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApplicationStatistics" EntityType="GF.Domain.Context.Store.ApplicationStatistics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HighSchools" EntityType="GF.Domain.Context.Store.HighSchools" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IDCard" EntityType="GF.Domain.Context.Store.IDCard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PayRecords" EntityType="GF.Domain.Context.Store.PayRecords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RechargeRecords" EntityType="GF.Domain.Context.Store.RechargeRecords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Regions" EntityType="GF.Domain.Context.Store.Regions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="GF.Domain.Context.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScorePublishes" EntityType="GF.Domain.Context.Store.ScorePublishes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Specialities" EntityType="GF.Domain.Context.Store.Specialities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecialityAcceptanceStatistics" EntityType="GF.Domain.Context.Store.SpecialityAcceptanceStatistics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Universities" EntityType="GF.Domain.Context.Store.Universities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UniversityAcceptanceStatistics" EntityType="GF.Domain.Context.Store.UniversityAcceptanceStatistics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UniversityEnrollPlans" EntityType="GF.Domain.Context.Store.UniversityEnrollPlans" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="GF.Domain.Context.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Achievements_HighSchool" Association="GF.Domain.Context.Store.FK_Achievements_HighSchool">
+      <End Role="HighSchools" EntitySet="HighSchools" />
+      <End Role="Achievements" EntitySet="Achievements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Achievements_Regions" Association="GF.Domain.Context.Store.FK_Achievements_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Achievements" EntitySet="Achievements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Achievements_Users" Association="GF.Domain.Context.Store.FK_Achievements_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Achievements" EntitySet="Achievements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_Specialities" Association="GF.Domain.Context.Store.FK_Applications_Specialities">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_Universities" Association="GF.Domain.Context.Store.FK_Applications_Universities">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_Users" Association="GF.Domain.Context.Store.FK_Applications_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IDCard_Users" Association="GF.Domain.Context.Store.FK_IDCard_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="IDCard" EntitySet="IDCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PayRecords_Users" Association="GF.Domain.Context.Store.FK_PayRecords_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PayRecords" EntitySet="PayRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RechargeRecords_Users" Association="GF.Domain.Context.Store.FK_RechargeRecords_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RechargeRecords" EntitySet="RechargeRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScorePublishes_Regions" Association="GF.Domain.Context.Store.FK_ScorePublishes_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="ScorePublishes" EntitySet="ScorePublishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialityAcceptanceStatistics_Specialities" Association="GF.Domain.Context.Store.FK_SpecialityAcceptanceStatistics_Specialities">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="SpecialityAcceptanceStatistics" EntitySet="SpecialityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics" Association="GF.Domain.Context.Store.FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics">
+      <End Role="UniversityAcceptanceStatistics" EntitySet="UniversityAcceptanceStatistics" />
+      <End Role="SpecialityAcceptanceStatistics" EntitySet="SpecialityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Universities_Regions" Association="GF.Domain.Context.Store.FK_Universities_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Universities" EntitySet="Universities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityAcceptanceStatistics_Regions" Association="GF.Domain.Context.Store.FK_UniversityAcceptanceStatistics_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="UniversityAcceptanceStatistics" EntitySet="UniversityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityAcceptanceStatistics_Universities" Association="GF.Domain.Context.Store.FK_UniversityAcceptanceStatistics_Universities">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="UniversityAcceptanceStatistics" EntitySet="UniversityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityEnrollPlans_Regions" Association="GF.Domain.Context.Store.FK_UniversityEnrollPlans_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="UniversityEnrollPlans" EntitySet="UniversityEnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityEnrollPlans_Specialities" Association="GF.Domain.Context.Store.FK_UniversityEnrollPlans_Specialities">
+      <End Role="Specialities" EntitySet="Specialities" />
+      <End Role="UniversityEnrollPlans" EntitySet="UniversityEnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityEnrollPlans_Universities" Association="GF.Domain.Context.Store.FK_UniversityEnrollPlans_Universities">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="UniversityEnrollPlans" EntitySet="UniversityEnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="GF.Domain.Context.Store.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Universities" Association="GF.Domain.Context.Store.FK_Users_Universities">
+      <End Role="Universities" EntitySet="Universities" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Achievements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Score" Type="float" Nullable="false" />
+    <Property Name="ACEENumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="ProvinceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CourseType" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="HighSchoolId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ApplicationSequence" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsAccepted" Type="bit" Nullable="false" />
+    <Property Name="ApplyTime" Type="datetime" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplicationStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TotalQuantity" Type="int" Nullable="false" />
+    <Property Name="SuccessQuantity" Type="int" Nullable="false" />
+    <Property Name="FailQuantity" Type="int" Nullable="false" />
+    <Property Name="ApplicationSequence" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HighSchools">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="RegionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IDCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChineseName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="IDCardNo" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PayRecords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Coins" Type="int" Nullable="false" />
+    <Property Name="ActionTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RechargeRecords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Coins" Type="int" Nullable="false" />
+    <Property Name="RechargeTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Gbcode" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Class" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="ScorePublishes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProvinceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PublishDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specialities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Category" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SpecialityCode" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SpecialityAcceptanceStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HighestScore" Type="float" Nullable="false" />
+    <Property Name="LowestScore" Type="float" Nullable="false" />
+    <Property Name="AverageScore" Type="float" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PlannedEnrollNumber" Type="int" Nullable="false" />
+    <Property Name="RealEnrollNumber" Type="int" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="UniversityAcceptanceStatisticsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Universities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="UniversityType" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Subjection" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="EducationLevel" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SchoolType" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Is985" Type="bit" Nullable="false" />
+    <Property Name="Is211" Type="bit" Nullable="false" />
+    <Property Name="IsNational" Type="bit" Nullable="false" />
+    <Property Name="UniversityCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProvinceId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UniversityAcceptanceStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="HighestScore" Type="float" Nullable="false" />
+    <Property Name="LowestScore" Type="float" Nullable="false" />
+    <Property Name="AverageScore" Type="float" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProvinceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AcceptNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UniversityEnrollPlans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PlannedNumber" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="ProvinceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PlanCategory" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CourseType" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="StudyYears" Type="int" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="QQ" Type="nvarchar" MaxLength="100" />
+    <Property Name="Coins" Type="int" Nullable="false" />
+    <Property Name="IsLocked" Type="bit" Nullable="false" />
+    <Property Name="IDCardNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChineseName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="IsIDCardValid" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" />
+  </EntityType>
+  <Association Name="FK_Achievements_HighSchool">
+    <End Role="HighSchools" Type="GF.Domain.Context.Store.HighSchools" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Achievements" Type="GF.Domain.Context.Store.Achievements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HighSchools">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievements">
+        <PropertyRef Name="HighSchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Achievements_Regions">
+    <End Role="Regions" Type="GF.Domain.Context.Store.Regions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Achievements" Type="GF.Domain.Context.Store.Achievements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievements">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Achievements_Users">
+    <End Role="Users" Type="GF.Domain.Context.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Achievements" Type="GF.Domain.Context.Store.Achievements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievements">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_Specialities">
+    <End Role="Specialities" Type="GF.Domain.Context.Store.Specialities" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Applications" Type="GF.Domain.Context.Store.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_Universities">
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Applications" Type="GF.Domain.Context.Store.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_Users">
+    <End Role="Users" Type="GF.Domain.Context.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Applications" Type="GF.Domain.Context.Store.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IDCard_Users">
+    <End Role="Users" Type="GF.Domain.Context.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IDCard" Type="GF.Domain.Context.Store.IDCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IDCard">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PayRecords_Users">
+    <End Role="Users" Type="GF.Domain.Context.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PayRecords" Type="GF.Domain.Context.Store.PayRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PayRecords">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RechargeRecords_Users">
+    <End Role="Users" Type="GF.Domain.Context.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RechargeRecords" Type="GF.Domain.Context.Store.RechargeRecords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RechargeRecords">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScorePublishes_Regions">
+    <End Role="Regions" Type="GF.Domain.Context.Store.Regions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ScorePublishes" Type="GF.Domain.Context.Store.ScorePublishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScorePublishes">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialityAcceptanceStatistics_Specialities">
+    <End Role="Specialities" Type="GF.Domain.Context.Store.Specialities" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SpecialityAcceptanceStatistics" Type="GF.Domain.Context.Store.SpecialityAcceptanceStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityAcceptanceStatistics">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics">
+    <End Role="UniversityAcceptanceStatistics" Type="GF.Domain.Context.Store.UniversityAcceptanceStatistics" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SpecialityAcceptanceStatistics" Type="GF.Domain.Context.Store.SpecialityAcceptanceStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UniversityAcceptanceStatistics">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityAcceptanceStatistics">
+        <PropertyRef Name="UniversityAcceptanceStatisticsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Universities_Regions">
+    <End Role="Regions" Type="GF.Domain.Context.Store.Regions" Multiplicity="1" />
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Universities">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityAcceptanceStatistics_Regions">
+    <End Role="Regions" Type="GF.Domain.Context.Store.Regions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UniversityAcceptanceStatistics" Type="GF.Domain.Context.Store.UniversityAcceptanceStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityAcceptanceStatistics">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityAcceptanceStatistics_Universities">
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UniversityAcceptanceStatistics" Type="GF.Domain.Context.Store.UniversityAcceptanceStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityAcceptanceStatistics">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityEnrollPlans_Regions">
+    <End Role="Regions" Type="GF.Domain.Context.Store.Regions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UniversityEnrollPlans" Type="GF.Domain.Context.Store.UniversityEnrollPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityEnrollPlans">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityEnrollPlans_Specialities">
+    <End Role="Specialities" Type="GF.Domain.Context.Store.Specialities" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UniversityEnrollPlans" Type="GF.Domain.Context.Store.UniversityEnrollPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityEnrollPlans">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityEnrollPlans_Universities">
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UniversityEnrollPlans" Type="GF.Domain.Context.Store.UniversityEnrollPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityEnrollPlans">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Role="Roles" Type="GF.Domain.Context.Store.Roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="GF.Domain.Context.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Universities">
+    <End Role="Universities" Type="GF.Domain.Context.Store.Universities" Multiplicity="0..1" />
+    <End Role="Users" Type="GF.Domain.Context.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_AchievementsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AchievementsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Score" Type="float" Mode="In" />
+    <Parameter Name="ACEENumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CourseType" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="HighSchoolId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_AchievementsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AchievementsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Score" Type="float" Mode="In" />
+    <Parameter Name="ACEENumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CourseType" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="HighSchoolId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_Applications_GetApplicationScoreRankStatistic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_Applications_GetApplicationSequenceScoreRankStatistic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationSequence" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Applications_GetApplicationSequenceStatistic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationSequence" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_Applications_GetApplicationStatistic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_Applications_GetApplicationUserStatistic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationsGetLatest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="top" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationSequence" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IsAccepted" Type="bit" Mode="In" />
+    <Parameter Name="ApplyTime" Type="datetime" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationsSelectByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationStatisticsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationStatisticsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TotalQuantity" Type="int" Mode="In" />
+    <Parameter Name="SuccessQuantity" Type="int" Mode="In" />
+    <Parameter Name="FailQuantity" Type="int" Mode="In" />
+    <Parameter Name="ApplicationSequence" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationStatisticsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationStatisticsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="TotalQuantity" Type="int" Mode="In" />
+    <Parameter Name="SuccessQuantity" Type="int" Mode="In" />
+    <Parameter Name="FailQuantity" Type="int" Mode="In" />
+    <Parameter Name="ApplicationSequence" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ApplicationsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationSequence" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IsAccepted" Type="bit" Mode="In" />
+    <Parameter Name="ApplyTime" Type="datetime" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_GF_Pagination" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QueryStr" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="PageCurrent" Type="int" Mode="In" />
+    <Parameter Name="FdColumns" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FdOrderStr" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FdOrderDirec" Type="int" Mode="In" />
+    <Parameter Name="WhereStr" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Rows" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_HighSchoolsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_HighSchoolsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SchoolName" Type="nvarchar" Mode="In" />
+    <Parameter Name="RegionId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_HighSchoolsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_HighSchoolsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SchoolName" Type="nvarchar" Mode="In" />
+    <Parameter Name="RegionId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_IDCardDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_IDCardInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ChineseName" Type="nvarchar" Mode="In" />
+    <Parameter Name="IDCardNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_IDCardSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_IDCardUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ChineseName" Type="nvarchar" Mode="In" />
+    <Parameter Name="IDCardNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_PayRecordsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PayRecordsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+    <Parameter Name="Coins" Type="int" Mode="In" />
+    <Parameter Name="ActionTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_PayRecordsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PayRecordsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+    <Parameter Name="Coins" Type="int" Mode="In" />
+    <Parameter Name="ActionTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_RechargeRecordsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RechargeRecordsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Coins" Type="int" Mode="In" />
+    <Parameter Name="RechargeTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_RechargeRecordsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RechargeRecordsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Coins" Type="int" Mode="In" />
+    <Parameter Name="RechargeTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_RegionsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_RegionsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Gbcode" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Class" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RegionsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_RegionsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Gbcode" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Class" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RolesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_RolesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_RolesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_RolesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_ScorePublishesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ScorePublishesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PublishDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_ScorePublishesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ScorePublishesSelectByProvinceId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_ScorePublishesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PublishDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialitiesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialitiesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Category" Type="nvarchar" Mode="In" />
+    <Parameter Name="SpecialityCode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialitiesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialitiesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Category" Type="nvarchar" Mode="In" />
+    <Parameter Name="SpecialityCode" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialityAcceptanceStatisticsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialityAcceptanceStatisticsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HighestScore" Type="float" Mode="In" />
+    <Parameter Name="LowestScore" Type="float" Mode="In" />
+    <Parameter Name="AverageScore" Type="float" Mode="In" />
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlannedEnrollNumber" Type="int" Mode="In" />
+    <Parameter Name="RealEnrollNumber" Type="int" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="UniversityAcceptanceStatisticsId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialityAcceptanceStatisticsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialityAcceptanceStatisticsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="HighestScore" Type="float" Mode="In" />
+    <Parameter Name="LowestScore" Type="float" Mode="In" />
+    <Parameter Name="AverageScore" Type="float" Mode="In" />
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="PlannedEnrollNumber" Type="int" Mode="In" />
+    <Parameter Name="RealEnrollNumber" Type="int" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="UniversityAcceptanceStatisticsId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialityEnrollPlansSelectByUniversityId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_SpecialityEnrollPlansSelectByUniversityIdAndProvince" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversitiesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversitiesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="UniversityType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Subjection" Type="nvarchar" Mode="In" />
+    <Parameter Name="EducationLevel" Type="nvarchar" Mode="In" />
+    <Parameter Name="SchoolType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Is985" Type="bit" Mode="In" />
+    <Parameter Name="Is211" Type="bit" Mode="In" />
+    <Parameter Name="IsNational" Type="bit" Mode="In" />
+    <Parameter Name="UniversityCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversitiesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversitiesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="UniversityType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Subjection" Type="nvarchar" Mode="In" />
+    <Parameter Name="EducationLevel" Type="nvarchar" Mode="In" />
+    <Parameter Name="SchoolType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Is985" Type="bit" Mode="In" />
+    <Parameter Name="Is211" Type="bit" Mode="In" />
+    <Parameter Name="IsNational" Type="bit" Mode="In" />
+    <Parameter Name="UniversityCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityAcceptanceStatisticsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityAcceptanceStatisticsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="HighestScore" Type="float" Mode="In" />
+    <Parameter Name="LowestScore" Type="float" Mode="In" />
+    <Parameter Name="AverageScore" Type="float" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="AcceptNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityAcceptanceStatisticsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityAcceptanceStatisticsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="HighestScore" Type="float" Mode="In" />
+    <Parameter Name="LowestScore" Type="float" Mode="In" />
+    <Parameter Name="AverageScore" Type="float" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="AcceptNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityEnrollPlansDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityEnrollPlansInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="PlannedNumber" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="PlanCategory" Type="nvarchar" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CourseType" Type="nvarchar" Mode="In" />
+    <Parameter Name="StudyYears" Type="int" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityEnrollPlansSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UniversityEnrollPlansUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="PlannedNumber" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="ProvinceId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Batch" Type="nvarchar" Mode="In" />
+    <Parameter Name="PlanCategory" Type="nvarchar" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="SpecialityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CourseType" Type="nvarchar" Mode="In" />
+    <Parameter Name="StudyYears" Type="int" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_UsersCheckExistById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="isExist" Type="bit" Mode="InOut" />
+  </Function>
+  <Function Name="usp_UsersCheckExistByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="isExist" Type="bit" Mode="InOut" />
+  </Function>
+  <Function Name="usp_UsersDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_UsersInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="QQ" Type="nvarchar" Mode="In" />
+    <Parameter Name="Coins" Type="int" Mode="In" />
+    <Parameter Name="IsLocked" Type="bit" Mode="In" />
+    <Parameter Name="IDCardNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChineseName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="bit" Mode="In" />
+    <Parameter Name="IsIDCardValid" Type="bit" Mode="In" />
+    <Parameter Name="LastActivityDate" Type="datetime" Mode="In" />
+    <Parameter Name="RoleId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_UsersSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="usp_UsersSelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usp_UsersUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="QQ" Type="nvarchar" Mode="In" />
+    <Parameter Name="Coins" Type="int" Mode="In" />
+    <Parameter Name="IsLocked" Type="bit" Mode="In" />
+    <Parameter Name="IDCardNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChineseName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Gender" Type="bit" Mode="In" />
+    <Parameter Name="IsIDCardValid" Type="bit" Mode="In" />
+    <Parameter Name="LastActivityDate" Type="datetime" Mode="In" />
+    <Parameter Name="RoleId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="UniversityId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+</Schema>

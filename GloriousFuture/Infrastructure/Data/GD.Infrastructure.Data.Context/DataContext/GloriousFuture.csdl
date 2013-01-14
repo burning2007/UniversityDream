@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GF.Domain.Context" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="ApplicationContext" annotation:LazyLoadingEnabled="true" cg:TypeAccess="Internal">
+    <FunctionImport Name="GetApplicationSequenceProvinceStatistic">
+      <Parameter Name="SpecialityId" Mode="In" Type="Guid" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="ApplicationSequence" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserByName" EntitySet="Users" ReturnType="Collection(GF.Domain.Context.User)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserById" EntitySet="Users" ReturnType="Collection(GF.Domain.Context.User)">
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="CheckUserExistById">
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+      <Parameter Name="isExist" Mode="InOut" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="CheckUserExistByName">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="isExist" Mode="InOut" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="GetApplicationById" EntitySet="Applications" ReturnType="Collection(GF.Domain.Context.Application)">
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GetUniversityById" EntitySet="Universities" ReturnType="Collection(GF.Domain.Context.University)">
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GetSpecialityById" EntitySet="Specialities" ReturnType="Collection(GF.Domain.Context.Speciality)">
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GetScorePublishByProvinceId" EntitySet="ScorePublishes" ReturnType="Collection(GF.Domain.Context.ScorePublish)">
+      <Parameter Name="ProvinceId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GetApplicationsByUserId" ReturnType="Collection(GF.Domain.Context.ApplicationsDTO)">
+      <Parameter Name="UserId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GetApplicationScoreRankStatistic">
+      <Parameter Name="SpecialityId" Mode="In" Type="Guid" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetApplicationSequenceScoreRankStatistic">
+      <Parameter Name="SpecialityId" Mode="In" Type="Guid" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="ApplicationSequence" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetApplicationUserStatistic">
+      <Parameter Name="SpecialityId" Mode="In" Type="Guid" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetLatestApplications" ReturnType="Collection(GF.Domain.Context.LatestApplicationsDTO)">
+      <Parameter Name="top" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="HighSchools" EntityType="GF.Domain.Context.HighSchool" />
+    <EntitySet Name="PayRecords" EntityType="GF.Domain.Context.PayRecord" />
+    <EntitySet Name="RechargeRecords" EntityType="GF.Domain.Context.RechargeRecord" />
+    <EntitySet Name="Regions" EntityType="GF.Domain.Context.Region" />
+    <EntitySet Name="Roles" EntityType="GF.Domain.Context.Role" />
+    <EntitySet Name="ScorePublishes" EntityType="GF.Domain.Context.ScorePublish" />
+    <EntitySet Name="Specialities" EntityType="GF.Domain.Context.Speciality" />
+    <EntitySet Name="Universities" EntityType="GF.Domain.Context.University" />
+    <EntitySet Name="Users" EntityType="GF.Domain.Context.User" />
+    <AssociationSet Name="FK_PayRecords_Users" Association="GF.Domain.Context.FK_PayRecords_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PayRecord" EntitySet="PayRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RechargeRecords_Users" Association="GF.Domain.Context.FK_RechargeRecords_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="RechargeRecord" EntitySet="RechargeRecords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScorePublishes_Regions" Association="GF.Domain.Context.FK_ScorePublishes_Regions">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="ScorePublish" EntitySet="ScorePublishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="GF.Domain.Context.FK_Users_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Universities" Association="GF.Domain.Context.FK_Users_Universities">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Achievements" EntityType="GF.Domain.Context.Achievement" />
+    <AssociationSet Name="FK_Achievements_HighSchool" Association="GF.Domain.Context.FK_Achievements_HighSchool">
+      <End Role="HighSchool" EntitySet="HighSchools" />
+      <End Role="Achievement" EntitySet="Achievements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Achievements_Users" Association="GF.Domain.Context.FK_Achievements_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Achievement" EntitySet="Achievements" />
+    </AssociationSet>
+    <EntitySet Name="Applications" EntityType="GF.Domain.Context.Application" />
+    <EntitySet Name="ApplicationStatistics" EntityType="GF.Domain.Context.ApplicationStatistic" />
+    <EntitySet Name="SpecialityAcceptanceStatistics" EntityType="GF.Domain.Context.SpecialityAcceptanceStatistic" />
+    <EntitySet Name="UniversityAcceptanceStatistics" EntityType="GF.Domain.Context.UniversityAcceptanceStatistic" />
+    <EntitySet Name="UniversityEnrollPlans" EntityType="GF.Domain.Context.UniversityEnrollPlan" />
+    <AssociationSet Name="FK_Applications_Specialities" Association="GF.Domain.Context.FK_Applications_Specialities">
+      <End Role="Speciality" EntitySet="Specialities" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_Universities" Association="GF.Domain.Context.FK_Applications_Universities">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_Users" Association="GF.Domain.Context.FK_Applications_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityAcceptanceStatistics_Regions" Association="GF.Domain.Context.FK_UniversityAcceptanceStatistics_Regions">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="UniversityAcceptanceStatistic" EntitySet="UniversityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityEnrollPlans_Regions" Association="GF.Domain.Context.FK_UniversityEnrollPlans_Regions">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="UniversityEnrollPlan" EntitySet="UniversityEnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialityAcceptanceStatistics_Specialities" Association="GF.Domain.Context.FK_SpecialityAcceptanceStatistics_Specialities">
+      <End Role="Speciality" EntitySet="Specialities" />
+      <End Role="SpecialityAcceptanceStatistic" EntitySet="SpecialityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityEnrollPlans_Specialities" Association="GF.Domain.Context.FK_UniversityEnrollPlans_Specialities">
+      <End Role="Speciality" EntitySet="Specialities" />
+      <End Role="UniversityEnrollPlan" EntitySet="UniversityEnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics" Association="GF.Domain.Context.FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics">
+      <End Role="UniversityAcceptanceStatistic" EntitySet="UniversityAcceptanceStatistics" />
+      <End Role="SpecialityAcceptanceStatistic" EntitySet="SpecialityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityAcceptanceStatistics_Universities" Association="GF.Domain.Context.FK_UniversityAcceptanceStatistics_Universities">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="UniversityAcceptanceStatistic" EntitySet="UniversityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UniversityEnrollPlans_Universities" Association="GF.Domain.Context.FK_UniversityEnrollPlans_Universities">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="UniversityEnrollPlan" EntitySet="UniversityEnrollPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Achievements_Regions" Association="GF.Domain.Context.FK_Achievements_Regions">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="Achievement" EntitySet="Achievements" />
+    </AssociationSet>
+    <EntitySet Name="IDCards" EntityType="GF.Domain.Context.IDCard" />
+    <AssociationSet Name="FK_IDCard_Users" Association="GF.Domain.Context.FK_IDCard_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="IDCard" EntitySet="IDCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Universities_Regions" Association="GF.Domain.Context.FK_Universities_Regions">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="University" EntitySet="Universities" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HighSchool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SchoolName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RegionId" Nullable="false" />
+    <NavigationProperty Name="Achievements" Relationship="GF.Domain.Context.FK_Achievements_HighSchool" FromRole="HighSchool" ToRole="Achievement" />
+  </EntityType>
+  <EntityType Name="PayRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Action" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Coins" Nullable="false" />
+    <Property Type="DateTime" Name="ActionTime" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="GF.Domain.Context.FK_PayRecords_Users" FromRole="PayRecord" ToRole="User" />
+  </EntityType>
+  <EntityType Name="RechargeRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="Coins" Nullable="false" />
+    <Property Type="DateTime" Name="RechargeTime" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="GF.Domain.Context.FK_RechargeRecords_Users" FromRole="RechargeRecord" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Gbcode" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Class" Nullable="false" />
+    <NavigationProperty Name="ScorePublishes" Relationship="GF.Domain.Context.FK_ScorePublishes_Regions" FromRole="Region" ToRole="ScorePublish" />
+    <NavigationProperty Name="UniversityAcceptanceStatistics" Relationship="GF.Domain.Context.FK_UniversityAcceptanceStatistics_Regions" FromRole="Region" ToRole="UniversityAcceptanceStatistic" />
+    <NavigationProperty Name="UniversityEnrollPlans" Relationship="GF.Domain.Context.FK_UniversityEnrollPlans_Regions" FromRole="Region" ToRole="UniversityEnrollPlan" />
+    <NavigationProperty Name="Achievements" Relationship="GF.Domain.Context.FK_Achievements_Regions" FromRole="Region" ToRole="Achievement" />
+    <NavigationProperty Name="Universities" Relationship="GF.Domain.Context.FK_Universities_Regions" FromRole="Region" ToRole="University" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="GF.Domain.Context.FK_Users_Roles" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ScorePublish">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="ProvinceId" Nullable="false" />
+    <Property Type="DateTime" Name="PublishDate" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="GF.Domain.Context.FK_ScorePublishes_Regions" FromRole="ScorePublish" ToRole="Region" />
+  </EntityType>
+  <EntityType Name="Speciality">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Category" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SpecialityCode" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Applications" Relationship="GF.Domain.Context.FK_Applications_Specialities" FromRole="Speciality" ToRole="Application" />
+    <NavigationProperty Name="SpecialityAcceptanceStatistics" Relationship="GF.Domain.Context.FK_SpecialityAcceptanceStatistics_Specialities" FromRole="Speciality" ToRole="SpecialityAcceptanceStatistic" />
+    <NavigationProperty Name="UniversityEnrollPlans" Relationship="GF.Domain.Context.FK_UniversityEnrollPlans_Specialities" FromRole="Speciality" ToRole="UniversityEnrollPlan" />
+  </EntityType>
+  <EntityType Name="University">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UniversityType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Subjection" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EducationLevel" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SchoolType" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Is985" Nullable="false" />
+    <Property Type="Boolean" Name="Is211" Nullable="false" />
+    <Property Type="Boolean" Name="IsNational" Nullable="false" />
+    <Property Type="String" Name="UniversityCode" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="GF.Domain.Context.FK_Users_Universities" FromRole="University" ToRole="User" />
+    <NavigationProperty Name="Applications" Relationship="GF.Domain.Context.FK_Applications_Universities" FromRole="University" ToRole="Application" />
+    <NavigationProperty Name="UniversityAcceptanceStatistics" Relationship="GF.Domain.Context.FK_UniversityAcceptanceStatistics_Universities" FromRole="University" ToRole="UniversityAcceptanceStatistic" />
+    <NavigationProperty Name="UniversityEnrollPlans" Relationship="GF.Domain.Context.FK_UniversityEnrollPlans_Universities" FromRole="University" ToRole="UniversityEnrollPlan" />
+    <Property Type="Guid" Name="ProvinceId" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="GF.Domain.Context.FK_Universities_Regions" FromRole="University" ToRole="Region" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="QQ" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Coins" Nullable="false" />
+    <Property Type="Boolean" Name="IsLocked" Nullable="false" />
+    <Property Type="String" Name="IDCardNo" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ChineseName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="Boolean" Name="IsIDCardValid" Nullable="false" />
+    <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+    <Property Type="Guid" Name="RoleId" Nullable="false" />
+    <NavigationProperty Name="PayRecords" Relationship="GF.Domain.Context.FK_PayRecords_Users" FromRole="User" ToRole="PayRecord" />
+    <NavigationProperty Name="RechargeRecords" Relationship="GF.Domain.Context.FK_RechargeRecords_Users" FromRole="User" ToRole="RechargeRecord" />
+    <NavigationProperty Name="Role" Relationship="GF.Domain.Context.FK_Users_Roles" FromRole="User" ToRole="Role" />
+    <Property Type="Guid" Name="UniversityId" />
+    <NavigationProperty Name="University" Relationship="GF.Domain.Context.FK_Users_Universities" FromRole="User" ToRole="University" />
+    <NavigationProperty Name="Achievements" Relationship="GF.Domain.Context.FK_Achievements_Users" FromRole="User" ToRole="Achievement" />
+    <NavigationProperty Name="Applications" Relationship="GF.Domain.Context.FK_Applications_Users" FromRole="User" ToRole="Application" />
+    <NavigationProperty Name="IDCards" Relationship="GF.Domain.Context.FK_IDCard_Users" FromRole="User" ToRole="IDCard" />
+  </EntityType>
+  <Association Name="FK_PayRecords_Users">
+    <End Type="GF.Domain.Context.User" Role="User" Multiplicity="1" />
+    <End Type="GF.Domain.Context.PayRecord" Role="PayRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PayRecord">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RechargeRecords_Users">
+    <End Type="GF.Domain.Context.User" Role="User" Multiplicity="1" />
+    <End Type="GF.Domain.Context.RechargeRecord" Role="RechargeRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RechargeRecord">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScorePublishes_Regions">
+    <End Type="GF.Domain.Context.Region" Role="Region" Multiplicity="1" />
+    <End Type="GF.Domain.Context.ScorePublish" Role="ScorePublish" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScorePublish">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Type="GF.Domain.Context.Role" Role="Role" Multiplicity="1" />
+    <End Type="GF.Domain.Context.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Universities">
+    <End Type="GF.Domain.Context.University" Role="University" Multiplicity="0..1" />
+    <End Type="GF.Domain.Context.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Achievement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Double" Name="Score" Nullable="false" />
+    <Property Type="String" Name="ACEENumber" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="String" Name="CourseType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="Guid" Name="HighSchoolId" Nullable="false" />
+    <NavigationProperty Name="HighSchool" Relationship="GF.Domain.Context.FK_Achievements_HighSchool" FromRole="Achievement" ToRole="HighSchool" />
+    <NavigationProperty Name="User" Relationship="GF.Domain.Context.FK_Achievements_Users" FromRole="Achievement" ToRole="User" />
+    <Property Type="Guid" Name="ProvinceId" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="GF.Domain.Context.FK_Achievements_Regions" FromRole="Achievement" ToRole="Region" />
+  </EntityType>
+  <Association Name="FK_Achievements_HighSchool">
+    <End Type="GF.Domain.Context.HighSchool" Role="HighSchool" Multiplicity="1" />
+    <End Type="GF.Domain.Context.Achievement" Role="Achievement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HighSchool">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievement">
+        <PropertyRef Name="HighSchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Achievements_Users">
+    <End Type="GF.Domain.Context.User" Role="User" Multiplicity="1" />
+    <End Type="GF.Domain.Context.Achievement" Role="Achievement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievement">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="String" Name="Batch" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ApplicationSequence" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+    <Property Type="Boolean" Name="IsAccepted" Nullable="false" />
+    <Property Type="DateTime" Name="ApplyTime" Nullable="false" />
+    <Property Type="Guid" Name="UniversityId" Nullable="false" />
+    <NavigationProperty Name="Speciality" Relationship="GF.Domain.Context.FK_Applications_Specialities" FromRole="Application" ToRole="Speciality" />
+    <NavigationProperty Name="University" Relationship="GF.Domain.Context.FK_Applications_Universities" FromRole="Application" ToRole="University" />
+    <NavigationProperty Name="User" Relationship="GF.Domain.Context.FK_Applications_Users" FromRole="Application" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ApplicationStatistic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="TotalQuantity" Nullable="false" />
+    <Property Type="Int32" Name="SuccessQuantity" Nullable="false" />
+    <Property Type="Int32" Name="FailQuantity" Nullable="false" />
+    <Property Type="Int32" Name="ApplicationSequence" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialityAcceptanceStatistic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Double" Name="HighestScore" Nullable="false" />
+    <Property Type="Double" Name="LowestScore" Nullable="false" />
+    <Property Type="Double" Name="AverageScore" Nullable="false" />
+    <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+    <Property Type="Int32" Name="PlannedEnrollNumber" Nullable="false" />
+    <Property Type="Int32" Name="RealEnrollNumber" Nullable="false" />
+    <Property Type="String" Name="Batch" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Int32" Name="UniversityAcceptanceStatisticsId" Nullable="false" />
+    <NavigationProperty Name="Speciality" Relationship="GF.Domain.Context.FK_SpecialityAcceptanceStatistics_Specialities" FromRole="SpecialityAcceptanceStatistic" ToRole="Speciality" />
+    <NavigationProperty Name="UniversityAcceptanceStatistic" Relationship="GF.Domain.Context.FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics" FromRole="SpecialityAcceptanceStatistic" ToRole="UniversityAcceptanceStatistic" />
+  </EntityType>
+  <EntityType Name="UniversityAcceptanceStatistic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Double" Name="HighestScore" Nullable="false" />
+    <Property Type="Double" Name="LowestScore" Nullable="false" />
+    <Property Type="Double" Name="AverageScore" Nullable="false" />
+    <Property Type="String" Name="Batch" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UniversityId" Nullable="false" />
+    <Property Type="Guid" Name="ProvinceId" Nullable="false" />
+    <Property Type="Int32" Name="AcceptNumber" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="GF.Domain.Context.FK_UniversityAcceptanceStatistics_Regions" FromRole="UniversityAcceptanceStatistic" ToRole="Region" />
+    <NavigationProperty Name="SpecialityAcceptanceStatistics" Relationship="GF.Domain.Context.FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics" FromRole="UniversityAcceptanceStatistic" ToRole="SpecialityAcceptanceStatistic" />
+    <NavigationProperty Name="University" Relationship="GF.Domain.Context.FK_UniversityAcceptanceStatistics_Universities" FromRole="UniversityAcceptanceStatistic" ToRole="University" />
+  </EntityType>
+  <EntityType Name="UniversityEnrollPlan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PlannedNumber" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="Guid" Name="ProvinceId" Nullable="false" />
+    <Property Type="String" Name="Batch" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PlanCategory" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UniversityId" Nullable="false" />
+    <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="GF.Domain.Context.FK_UniversityEnrollPlans_Regions" FromRole="UniversityEnrollPlan" ToRole="Region" />
+    <NavigationProperty Name="Speciality" Relationship="GF.Domain.Context.FK_UniversityEnrollPlans_Specialities" FromRole="UniversityEnrollPlan" ToRole="Speciality" />
+    <NavigationProperty Name="University" Relationship="GF.Domain.Context.FK_UniversityEnrollPlans_Universities" FromRole="UniversityEnrollPlan" ToRole="University" />
+    <Property Type="String" Name="CourseType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="StudyYears" Nullable="false" />
+    <Property Type="String" Name="Remarks" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Applications_Specialities">
+    <End Type="GF.Domain.Context.Speciality" Role="Speciality" Multiplicity="1" />
+    <End Type="GF.Domain.Context.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_Universities">
+    <End Type="GF.Domain.Context.University" Role="University" Multiplicity="1" />
+    <End Type="GF.Domain.Context.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_Users">
+    <End Type="GF.Domain.Context.User" Role="User" Multiplicity="1" />
+    <End Type="GF.Domain.Context.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityAcceptanceStatistics_Regions">
+    <End Type="GF.Domain.Context.Region" Role="Region" Multiplicity="1" />
+    <End Type="GF.Domain.Context.UniversityAcceptanceStatistic" Role="UniversityAcceptanceStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityAcceptanceStatistic">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityEnrollPlans_Regions">
+    <End Type="GF.Domain.Context.Region" Role="Region" Multiplicity="1" />
+    <End Type="GF.Domain.Context.UniversityEnrollPlan" Role="UniversityEnrollPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityEnrollPlan">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialityAcceptanceStatistics_Specialities">
+    <End Type="GF.Domain.Context.Speciality" Role="Speciality" Multiplicity="1" />
+    <End Type="GF.Domain.Context.SpecialityAcceptanceStatistic" Role="SpecialityAcceptanceStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityAcceptanceStatistic">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityEnrollPlans_Specialities">
+    <End Type="GF.Domain.Context.Speciality" Role="Speciality" Multiplicity="1" />
+    <End Type="GF.Domain.Context.UniversityEnrollPlan" Role="UniversityEnrollPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityEnrollPlan">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialityAcceptanceStatistics_UniversityAcceptanceStatistics">
+    <End Type="GF.Domain.Context.UniversityAcceptanceStatistic" Role="UniversityAcceptanceStatistic" Multiplicity="1" />
+    <End Type="GF.Domain.Context.SpecialityAcceptanceStatistic" Role="SpecialityAcceptanceStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UniversityAcceptanceStatistic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityAcceptanceStatistic">
+        <PropertyRef Name="UniversityAcceptanceStatisticsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityAcceptanceStatistics_Universities">
+    <End Type="GF.Domain.Context.University" Role="University" Multiplicity="1" />
+    <End Type="GF.Domain.Context.UniversityAcceptanceStatistic" Role="UniversityAcceptanceStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityAcceptanceStatistic">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UniversityEnrollPlans_Universities">
+    <End Type="GF.Domain.Context.University" Role="University" Multiplicity="1" />
+    <End Type="GF.Domain.Context.UniversityEnrollPlan" Role="UniversityEnrollPlan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityEnrollPlan">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="ApplicationsDTO">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="false" />
+    <Property Type="String" Name="Batch" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ApplicationSequence" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+    <Property Type="Boolean" Name="IsAccepted" Nullable="false" />
+    <Property Type="DateTime" Name="ApplyTime" Nullable="false" Precision="23" />
+    <Property Type="Guid" Name="UniversityId" Nullable="false" />
+    <Property Type="String" Name="UniversityName" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="SpecialityName" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <Association Name="FK_Achievements_Regions">
+    <End Type="GF.Domain.Context.Region" Role="Region" Multiplicity="1" />
+    <End Type="GF.Domain.Context.Achievement" Role="Achievement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievement">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="LatestApplicationsDTO">
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="ApplyTime" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UniversityName" Nullable="false" MaxLength="200" />
+    <Property Type="Guid" Name="UniversityId" Nullable="false" />
+    <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+    <Property Type="String" Name="SpecialityName" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="IDCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="ChineseName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IDCardNo" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="GF.Domain.Context.FK_IDCard_Users" FromRole="IDCard" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_IDCard_Users">
+    <End Type="GF.Domain.Context.User" Role="User" Multiplicity="1" />
+    <End Type="GF.Domain.Context.IDCard" Role="IDCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IDCard">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Universities_Regions">
+    <End Type="GF.Domain.Context.Region" Role="Region" Multiplicity="1" />
+    <End Type="GF.Domain.Context.University" Role="University" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="University">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

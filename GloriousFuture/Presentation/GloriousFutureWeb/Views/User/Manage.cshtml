@@ -1,0 +1,51 @@
+﻿@*@model GloriousFutureWeb.Models.LocalPasswordModel
+@{
+    ViewBag.Title = "用户管理";
+}*@
+
+@*<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>*@
+
+@*<p class="message-success">@ViewBag.StatusMessage</p>*@
+
+@*<p>当前用户<strong>@User.Identity.Name</strong>.</p>*@
+
+
+@*@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordPartial")
+}
+else
+{ 
+    @Html.Partial("_SetPasswordPartial")
+}
+*@
+
+@{
+    if (Request.IsAuthenticated)
+    {
+        <div class="left" id="left">
+            <div class="l_box">
+                <h3 class="tabMenu">个人信息<span></span></h3>
+                <ul>
+                    <li>@Ajax.ActionLink("修改个人信息", "", new AjaxOptions{}) <span></span></li>
+                    <li>@Ajax.ActionLink("修改密码", "ChangePassword", new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "UserManage" })<span></span></li>
+                </ul>
+                <h3 class="tabMenu">生源信息<span></span></h3>
+                <ul>
+                    <li>@Html.ActionLink("修改生源信息", "", "")<span></span></li>
+                    <li>@Html.ActionLink("身份验证", "", "")<span></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right" id="right">
+            <div id="UserManage"></div>
+        </div>
+    }
+    }
+
+    @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

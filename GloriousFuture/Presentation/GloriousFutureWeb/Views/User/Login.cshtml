@@ -1,0 +1,46 @@
+﻿@model GloriousFutureWeb.Models.LoginModel
+
+@{
+    ViewBag.Title = "登录";
+}
+
+<section id="loginForm">
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.RememberMe, htmlAttributes: new {@checked = true})
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </li>
+        </ol>
+        <ol>
+            <li>
+                 <input type="submit" value="登录" />
+                 @Html.ActionLink("忘记密码", "ResetPassword", "User")
+            </li>
+        </ol>
+        <ol>
+        <p>
+            @Html.ActionLink("注册", "Register") 如果你还没有账号
+        </p>
+        </ol>
+    </fieldset>
+}
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,11 @@
+﻿@model IList<GF.Domain.Context.University>
+
+<div id="UniversityList">
+    <ul class="University">
+        @foreach (GF.Domain.Context.University university in Model)
+        {
+            @Html.Raw("<li><a href='javascript:void(0);' onclick=getSelectedUniversity('" + university.Name + "','" + university.Id.ToString() + "') >" + university.Name + "</a></li>");
+        }
+    </ul>
+</div>
+

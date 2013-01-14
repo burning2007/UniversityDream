@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GFDomainContextStoreContainer" CdmEntityContainer="ApplicationContext">
+    <EntitySetMapping Name="HighSchools">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.HighSchool)">
+        <MappingFragment StoreEntitySet="HighSchools">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.HighSchool">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_HighSchoolsInsert">
+            <ScalarProperty Name="RegionId" ParameterName="RegionId" />
+            <ScalarProperty Name="SchoolName" ParameterName="SchoolName" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_HighSchoolsUpdate">
+            <ScalarProperty Name="RegionId" ParameterName="RegionId" Version="Current" />
+            <ScalarProperty Name="SchoolName" ParameterName="SchoolName" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_HighSchoolsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayRecords">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.PayRecord)">
+        <MappingFragment StoreEntitySet="PayRecords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ScalarProperty Name="ActionTime" ColumnName="ActionTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.PayRecord">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_PayRecordsInsert">
+            <ScalarProperty Name="ActionTime" ParameterName="ActionTime" />
+            <ScalarProperty Name="Coins" ParameterName="Coins" />
+            <ScalarProperty Name="Action" ParameterName="Action" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_PayRecordsUpdate">
+            <ScalarProperty Name="ActionTime" ParameterName="ActionTime" Version="Current" />
+            <ScalarProperty Name="Coins" ParameterName="Coins" Version="Current" />
+            <ScalarProperty Name="Action" ParameterName="Action" Version="Current" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_PayRecordsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RechargeRecords">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.RechargeRecord)">
+        <MappingFragment StoreEntitySet="RechargeRecords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ScalarProperty Name="RechargeTime" ColumnName="RechargeTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.RechargeRecord">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_RechargeRecordsInsert">
+            <ScalarProperty Name="RechargeTime" ParameterName="RechargeTime" />
+            <ScalarProperty Name="Coins" ParameterName="Coins" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_RechargeRecordsUpdate">
+            <ScalarProperty Name="RechargeTime" ParameterName="RechargeTime" Version="Current" />
+            <ScalarProperty Name="Coins" ParameterName="Coins" Version="Current" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_ApplicationStatisticsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Region)">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Gbcode" ColumnName="Gbcode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.Region">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_RegionsInsert">
+            <ScalarProperty Name="Class" ParameterName="Class" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ScalarProperty Name="Gbcode" ParameterName="Gbcode" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_RegionsUpdate">
+            <ScalarProperty Name="Class" ParameterName="Class" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="Gbcode" ParameterName="Gbcode" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_RegionsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.Role">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_RolesInsert">
+            <ScalarProperty Name="Description" ParameterName="Description" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_RolesUpdate">
+            <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_RolesDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScorePublishes">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.ScorePublish)">
+        <MappingFragment StoreEntitySet="ScorePublishes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.ScorePublish">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_ScorePublishesInsert">
+            <ScalarProperty Name="PublishDate" ParameterName="PublishDate" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_ScorePublishesUpdate">
+            <ScalarProperty Name="PublishDate" ParameterName="PublishDate" Version="Current" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_ScorePublishesDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specialities">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Speciality)">
+        <MappingFragment StoreEntitySet="Specialities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="SpecialityCode" ColumnName="SpecialityCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.Speciality">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_SpecialitiesInsert">
+            <ScalarProperty Name="SpecialityCode" ParameterName="SpecialityCode" />
+            <ScalarProperty Name="Category" ParameterName="Category" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_SpecialitiesUpdate">
+            <ScalarProperty Name="SpecialityCode" ParameterName="SpecialityCode" Version="Current" />
+            <ScalarProperty Name="Category" ParameterName="Category" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_SpecialitiesDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.University)">
+        <MappingFragment StoreEntitySet="Universities">
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UniversityType" ColumnName="UniversityType" />
+          <ScalarProperty Name="Subjection" ColumnName="Subjection" />
+          <ScalarProperty Name="EducationLevel" ColumnName="EducationLevel" />
+          <ScalarProperty Name="SchoolType" ColumnName="SchoolType" />
+          <ScalarProperty Name="Is985" ColumnName="Is985" />
+          <ScalarProperty Name="Is211" ColumnName="Is211" />
+          <ScalarProperty Name="IsNational" ColumnName="IsNational" />
+          <ScalarProperty Name="UniversityCode" ColumnName="UniversityCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.University">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_UniversitiesInsert">
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" />
+            <ScalarProperty Name="UniversityCode" ParameterName="UniversityCode" />
+            <ScalarProperty Name="IsNational" ParameterName="IsNational" />
+            <ScalarProperty Name="Is211" ParameterName="Is211" />
+            <ScalarProperty Name="Is985" ParameterName="Is985" />
+            <ScalarProperty Name="SchoolType" ParameterName="SchoolType" />
+            <ScalarProperty Name="EducationLevel" ParameterName="EducationLevel" />
+            <ScalarProperty Name="Subjection" ParameterName="Subjection" />
+            <ScalarProperty Name="UniversityType" ParameterName="UniversityType" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_UniversitiesUpdate">
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" Version="Current" />
+            <ScalarProperty Name="UniversityCode" ParameterName="UniversityCode" Version="Current" />
+            <ScalarProperty Name="IsNational" ParameterName="IsNational" Version="Current" />
+            <ScalarProperty Name="Is211" ParameterName="Is211" Version="Current" />
+            <ScalarProperty Name="Is985" ParameterName="Is985" Version="Current" />
+            <ScalarProperty Name="SchoolType" ParameterName="SchoolType" Version="Current" />
+            <ScalarProperty Name="EducationLevel" ParameterName="EducationLevel" Version="Current" />
+            <ScalarProperty Name="Subjection" ParameterName="Subjection" Version="Current" />
+            <ScalarProperty Name="UniversityType" ParameterName="UniversityType" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_UniversitiesDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="IDCardNo" ColumnName="IDCardNo" />
+          <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="IsIDCardValid" ColumnName="IsIDCardValid" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.User">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_UsersInsert">
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" />
+            <ScalarProperty Name="RoleId" ParameterName="RoleId" />
+            <ScalarProperty Name="LastActivityDate" ParameterName="LastActivityDate" />
+            <ScalarProperty Name="IsIDCardValid" ParameterName="IsIDCardValid" />
+            <ScalarProperty Name="Gender" ParameterName="Gender" />
+            <ScalarProperty Name="ChineseName" ParameterName="ChineseName" />
+            <ScalarProperty Name="IDCardNo" ParameterName="IDCardNo" />
+            <ScalarProperty Name="IsLocked" ParameterName="IsLocked" />
+            <ScalarProperty Name="Coins" ParameterName="Coins" />
+            <ScalarProperty Name="QQ" ParameterName="QQ" />
+            <ScalarProperty Name="Email" ParameterName="Email" />
+            <ScalarProperty Name="Password" ParameterName="Password" />
+            <ScalarProperty Name="UserName" ParameterName="UserName" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_UsersUpdate">
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" Version="Current" />
+            <ScalarProperty Name="RoleId" ParameterName="RoleId" Version="Current" />
+            <ScalarProperty Name="LastActivityDate" ParameterName="LastActivityDate" Version="Current" />
+            <ScalarProperty Name="IsIDCardValid" ParameterName="IsIDCardValid" Version="Current" />
+            <ScalarProperty Name="Gender" ParameterName="Gender" Version="Current" />
+            <ScalarProperty Name="ChineseName" ParameterName="ChineseName" Version="Current" />
+            <ScalarProperty Name="IDCardNo" ParameterName="IDCardNo" Version="Current" />
+            <ScalarProperty Name="IsLocked" ParameterName="IsLocked" Version="Current" />
+            <ScalarProperty Name="Coins" ParameterName="Coins" Version="Current" />
+            <ScalarProperty Name="QQ" ParameterName="QQ" Version="Current" />
+            <ScalarProperty Name="Email" ParameterName="Email" Version="Current" />
+            <ScalarProperty Name="Password" ParameterName="Password" Version="Current" />
+            <ScalarProperty Name="UserName" ParameterName="UserName" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_UsersDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Achievements">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Achievement)">
+        <MappingFragment StoreEntitySet="Achievements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="ACEENumber" ColumnName="ACEENumber" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="HighSchoolId" ColumnName="HighSchoolId" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.Achievement">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_AchievementsInsert">
+            <ScalarProperty Name="HighSchoolId" ParameterName="HighSchoolId" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" />
+            <ScalarProperty Name="CourseType" ParameterName="CourseType" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" />
+            <ScalarProperty Name="Year" ParameterName="Year" />
+            <ScalarProperty Name="ACEENumber" ParameterName="ACEENumber" />
+            <ScalarProperty Name="Score" ParameterName="Score" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_AchievementsUpdate">
+            <ScalarProperty Name="HighSchoolId" ParameterName="HighSchoolId" Version="Current" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" Version="Current" />
+            <ScalarProperty Name="CourseType" ParameterName="CourseType" Version="Current" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" Version="Current" />
+            <ScalarProperty Name="Year" ParameterName="Year" Version="Current" />
+            <ScalarProperty Name="ACEENumber" ParameterName="ACEENumber" Version="Current" />
+            <ScalarProperty Name="Score" ParameterName="Score" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_AchievementsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Application)">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="ApplicationSequence" ColumnName="ApplicationSequence" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+          <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+          <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.Application">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_ApplicationsInsert">
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" />
+            <ScalarProperty Name="ApplyTime" ParameterName="ApplyTime" />
+            <ScalarProperty Name="IsAccepted" ParameterName="IsAccepted" />
+            <ScalarProperty Name="SpecialityId" ParameterName="SpecialityId" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" />
+            <ScalarProperty Name="ApplicationSequence" ParameterName="ApplicationSequence" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" />
+            <ScalarProperty Name="Year" ParameterName="Year" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_ApplicationsUpdate">
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" Version="Current" />
+            <ScalarProperty Name="ApplyTime" ParameterName="ApplyTime" Version="Current" />
+            <ScalarProperty Name="IsAccepted" ParameterName="IsAccepted" Version="Current" />
+            <ScalarProperty Name="SpecialityId" ParameterName="SpecialityId" Version="Current" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" Version="Current" />
+            <ScalarProperty Name="ApplicationSequence" ParameterName="ApplicationSequence" Version="Current" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" Version="Current" />
+            <ScalarProperty Name="Year" ParameterName="Year" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_ApplicationsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.ApplicationStatistic)">
+        <MappingFragment StoreEntitySet="ApplicationStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+          <ScalarProperty Name="SuccessQuantity" ColumnName="SuccessQuantity" />
+          <ScalarProperty Name="FailQuantity" ColumnName="FailQuantity" />
+          <ScalarProperty Name="ApplicationSequence" ColumnName="ApplicationSequence" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.ApplicationStatistic">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_ApplicationStatisticsInsert">
+            <ScalarProperty Name="Year" ParameterName="Year" />
+            <ScalarProperty Name="ApplicationSequence" ParameterName="ApplicationSequence" />
+            <ScalarProperty Name="FailQuantity" ParameterName="FailQuantity" />
+            <ScalarProperty Name="SuccessQuantity" ParameterName="SuccessQuantity" />
+            <ScalarProperty Name="TotalQuantity" ParameterName="TotalQuantity" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_ApplicationStatisticsUpdate">
+            <ScalarProperty Name="Year" ParameterName="Year" Version="Current" />
+            <ScalarProperty Name="ApplicationSequence" ParameterName="ApplicationSequence" Version="Current" />
+            <ScalarProperty Name="FailQuantity" ParameterName="FailQuantity" Version="Current" />
+            <ScalarProperty Name="SuccessQuantity" ParameterName="SuccessQuantity" Version="Current" />
+            <ScalarProperty Name="TotalQuantity" ParameterName="TotalQuantity" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_ApplicationStatisticsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialityAcceptanceStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.SpecialityAcceptanceStatistic)">
+        <MappingFragment StoreEntitySet="SpecialityAcceptanceStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+          <ScalarProperty Name="PlannedEnrollNumber" ColumnName="PlannedEnrollNumber" />
+          <ScalarProperty Name="RealEnrollNumber" ColumnName="RealEnrollNumber" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="UniversityAcceptanceStatisticsId" ColumnName="UniversityAcceptanceStatisticsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.SpecialityAcceptanceStatistic">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_SpecialityAcceptanceStatisticsInsert">
+            <ScalarProperty Name="UniversityAcceptanceStatisticsId" ParameterName="UniversityAcceptanceStatisticsId" />
+            <ScalarProperty Name="Year" ParameterName="Year" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" />
+            <ScalarProperty Name="RealEnrollNumber" ParameterName="RealEnrollNumber" />
+            <ScalarProperty Name="PlannedEnrollNumber" ParameterName="PlannedEnrollNumber" />
+            <ScalarProperty Name="SpecialityId" ParameterName="SpecialityId" />
+            <ScalarProperty Name="AverageScore" ParameterName="AverageScore" />
+            <ScalarProperty Name="LowestScore" ParameterName="LowestScore" />
+            <ScalarProperty Name="HighestScore" ParameterName="HighestScore" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_SpecialityAcceptanceStatisticsUpdate">
+            <ScalarProperty Name="UniversityAcceptanceStatisticsId" ParameterName="UniversityAcceptanceStatisticsId" Version="Current" />
+            <ScalarProperty Name="Year" ParameterName="Year" Version="Current" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" Version="Current" />
+            <ScalarProperty Name="RealEnrollNumber" ParameterName="RealEnrollNumber" Version="Current" />
+            <ScalarProperty Name="PlannedEnrollNumber" ParameterName="PlannedEnrollNumber" Version="Current" />
+            <ScalarProperty Name="SpecialityId" ParameterName="SpecialityId" Version="Current" />
+            <ScalarProperty Name="AverageScore" ParameterName="AverageScore" Version="Current" />
+            <ScalarProperty Name="LowestScore" ParameterName="LowestScore" Version="Current" />
+            <ScalarProperty Name="HighestScore" ParameterName="HighestScore" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_SpecialityAcceptanceStatisticsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UniversityAcceptanceStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.UniversityAcceptanceStatistic)">
+        <MappingFragment StoreEntitySet="UniversityAcceptanceStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="AcceptNumber" ColumnName="AcceptNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.UniversityAcceptanceStatistic">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_UniversityAcceptanceStatisticsInsert">
+            <ScalarProperty Name="AcceptNumber" ParameterName="AcceptNumber" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" />
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" />
+            <ScalarProperty Name="AverageScore" ParameterName="AverageScore" />
+            <ScalarProperty Name="LowestScore" ParameterName="LowestScore" />
+            <ScalarProperty Name="HighestScore" ParameterName="HighestScore" />
+            <ScalarProperty Name="Year" ParameterName="Year" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_UniversityAcceptanceStatisticsUpdate">
+            <ScalarProperty Name="AcceptNumber" ParameterName="AcceptNumber" Version="Current" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" Version="Current" />
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" Version="Current" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" Version="Current" />
+            <ScalarProperty Name="AverageScore" ParameterName="AverageScore" Version="Current" />
+            <ScalarProperty Name="LowestScore" ParameterName="LowestScore" Version="Current" />
+            <ScalarProperty Name="HighestScore" ParameterName="HighestScore" Version="Current" />
+            <ScalarProperty Name="Year" ParameterName="Year" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_UniversityAcceptanceStatisticsDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UniversityEnrollPlans">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.UniversityEnrollPlan)">
+        <MappingFragment StoreEntitySet="UniversityEnrollPlans">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlannedNumber" ColumnName="PlannedNumber" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="PlanCategory" ColumnName="PlanCategory" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="StudyYears" ColumnName="StudyYears" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.UniversityEnrollPlan">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_UniversityEnrollPlansInsert">
+            <ScalarProperty Name="Remarks" ParameterName="Remarks" />
+            <ScalarProperty Name="StudyYears" ParameterName="StudyYears" />
+            <ScalarProperty Name="CourseType" ParameterName="CourseType" />
+            <ScalarProperty Name="SpecialityId" ParameterName="SpecialityId" />
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" />
+            <ScalarProperty Name="PlanCategory" ParameterName="PlanCategory" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" />
+            <ScalarProperty Name="Year" ParameterName="Year" />
+            <ScalarProperty Name="PlannedNumber" ParameterName="PlannedNumber" />
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_UniversityEnrollPlansUpdate">
+            <ScalarProperty Name="Remarks" ParameterName="Remarks" Version="Current" />
+            <ScalarProperty Name="StudyYears" ParameterName="StudyYears" Version="Current" />
+            <ScalarProperty Name="CourseType" ParameterName="CourseType" Version="Current" />
+            <ScalarProperty Name="SpecialityId" ParameterName="SpecialityId" Version="Current" />
+            <ScalarProperty Name="UniversityId" ParameterName="UniversityId" Version="Current" />
+            <ScalarProperty Name="PlanCategory" ParameterName="PlanCategory" Version="Current" />
+            <ScalarProperty Name="Batch" ParameterName="Batch" Version="Current" />
+            <ScalarProperty Name="ProvinceId" ParameterName="ProvinceId" Version="Current" />
+            <ScalarProperty Name="Year" ParameterName="Year" Version="Current" />
+            <ScalarProperty Name="PlannedNumber" ParameterName="PlannedNumber" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_UniversityEnrollPlansDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IDCards">
+      <EntityTypeMapping TypeName="GF.Domain.Context.IDCard">
+        <MappingFragment StoreEntitySet="IDCard">
+          <ScalarProperty Name="IDCardNo" ColumnName="IDCardNo" />
+          <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="GF.Domain.Context.IDCard">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="GF.Domain.Context.Store.usp_IDCardInsert">
+            <ScalarProperty Name="IDCardNo" ParameterName="IDCardNo" />
+            <ScalarProperty Name="ChineseName" ParameterName="ChineseName" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="GF.Domain.Context.Store.usp_IDCardUpdate">
+            <ScalarProperty Name="IDCardNo" ParameterName="IDCardNo" Version="Current" />
+            <ScalarProperty Name="ChineseName" ParameterName="ChineseName" Version="Current" />
+            <ScalarProperty Name="UserId" ParameterName="UserId" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="GF.Domain.Context.Store.usp_IDCardDelete">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CheckUserExistByName" FunctionName="GF.Domain.Context.Store.usp_UsersCheckExistByName" />
+    <FunctionImportMapping FunctionImportName="CheckUserExistById" FunctionName="GF.Domain.Context.Store.usp_UsersCheckExistById" />
+    <FunctionImportMapping FunctionImportName="GetApplicationById" FunctionName="GF.Domain.Context.Store.usp_ApplicationsSelect" />
+    <FunctionImportMapping FunctionImportName="GetApplicationsByUserId" FunctionName="GF.Domain.Context.Store.usp_ApplicationsSelectByUserId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GF.Domain.Context.ApplicationsDTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="ApplicationSequence" ColumnName="ApplicationSequence" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+          <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+          <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="SpecialityName" ColumnName="SpecialityName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLatestApplications" FunctionName="GF.Domain.Context.Store.usp_ApplicationsGetLatest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GF.Domain.Context.LatestApplicationsDTO">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+          <ScalarProperty Name="SpecialityName" ColumnName="SpecialityName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetScorePublishByProvinceId" FunctionName="GF.Domain.Context.Store.usp_ScorePublishesSelectByProvinceId" />
+    <FunctionImportMapping FunctionImportName="GetSpecialityById" FunctionName="GF.Domain.Context.Store.usp_SpecialitiesSelect" />
+    <FunctionImportMapping FunctionImportName="GetUniversityById" FunctionName="GF.Domain.Context.Store.usp_UniversitiesSelect" />
+    <FunctionImportMapping FunctionImportName="GetUserById" FunctionName="GF.Domain.Context.Store.usp_UsersSelect" />
+    <FunctionImportMapping FunctionImportName="GetUserByName" FunctionName="GF.Domain.Context.Store.usp_UsersSelectByName" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="d7cfcbb6-fa5f-485a-b716-77d73598e9a2"
+  name="GF.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="dd7f089e-d99d-48e4-9656-f1964a674349">
+      <body>Check if id card number is completed</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="90af6806-23fa-4d14-a55d-3c0ad8a867cf"
+          LastKnownName="Decision7"
+          LastKnownLocation="GF.Modeling.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="85571e37-e1ec-4e79-b708-d461901e36a6">
+      <body>Check if score is completed</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="7cda2318-bd49-4e17-941c-ceeaa74a37f3"
+          LastKnownName="Decision8"
+          LastKnownLocation="GF.Modeling.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="a8627c9d-f350-4f1b-9724-bb7569ac7de8">
+      <body>if match the speciality type with you
+</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="68cec498-0ee2-438d-934f-9061bdefa0ab"
+          LastKnownName="Decision9"
+          LastKnownLocation="GF.Modeling.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="e7290de0-d3a2-4722-bd21-6fa876825f8e"
+        name="Student"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="4ab1a1f0-8cb4-4505-b3a5-8ff4738a4db0"
+            isDerived="false"
+            sourceEndRoleName="Student"
+            targetEndRoleName="Create/modify application based on the search result"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="49c842d2-1901-4715-8289-a6bbaf1a9f28"
+              LastKnownName="Create/modify application based on the search result"
+              LastKnownLocation="GF.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3b2f7ff3-9237-4812-9306-bc17d3f53424"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2680ef28-30ca-40ad-be96-0eef60681e2c"
+                  name="Create/modify application based on the search result"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="abbac9f4-a016-4d7d-81c1-5b880bf7d48d"
+            isDerived="false"
+            sourceEndRoleName="Student"
+            targetEndRoleName="Search which speciality of a university is suitable for him (planned enroll number and score are suitable)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="01754be6-e3e2-4510-8a1e-779b8da991c2"
+              LastKnownName="View which speciality of a university is suitable for him (planned enroll number and score are suitable, each page is 3 specialities, pagination)"
+              LastKnownLocation="GF.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2ab2dda6-cbc0-4d47-af94-165c4174e44b"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6bef8462-44e3-4d44-8b8b-8e988da5dbbc"
+                  name="Search which speciality of a university is suitable for him (planned enroll number and score are suitable)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="136138d6-9e81-4ca1-ad09-42ff40cdb6ec"
+            isDerived="false"
+            sourceEndRoleName="Student"
+            targetEndRoleName="view the statistic of his application(seperate the order of application)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c6f5b4f3-e0b2-447c-b25d-4bea05350bab"
+              LastKnownName="view the statistic of his application(seperate the order of application)"
+              LastKnownLocation="GF.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="27ee42ad-7cb1-4fac-84e2-25ac0ac9c3b5"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4ce4a62-2bac-4be3-9e1e-64c6028493dc"
+                  name="view the statistic of his application(seperate the order of application)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b15d81f8-1a2d-4095-a161-eb5830f7c267"
+            isDerived="false"
+            sourceEndRoleName="Student"
+            targetEndRoleName="create/modify/delete a pplication"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d1e48994-0cf4-4313-a4e6-487f3e1c47b0"
+              LastKnownName="create/modify/delete application"
+              LastKnownLocation="GF.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cdc3db98-6a11-4b55-87c8-b017f4d189d8"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="242e8d5a-5071-4cea-9dd4-9ba1a1cc4d5e"
+                  name="create/modify/delete a pplication"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ce0dc1ac-71f5-477b-8959-7a07cc31f8d2"
+            isDerived="false"
+            sourceEndRoleName="Student"
+            targetEndRoleName="Input score after score published by government"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b11093b4-879e-41f5-a5b5-d43e5bd66031"
+              LastKnownName="Input score after score published by government, must verify the id card number first"
+              LastKnownLocation="GF.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="425a02b9-fe1d-4f32-9eff-06aa5250e9e1"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="203fbf90-60ee-40d8-8d6a-2da0ec3f128b"
+                  name="Input score after score published by government"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="04c4b3dd-d419-441e-9d8e-a4ff769f075e"
+            isDerived="false"
+            sourceEndRoleName="Student"
+            targetEndRoleName="Register/login (one identity card number only can register one account)"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="28c36389-626e-41fc-8613-16284f86a484"
+              LastKnownName="Register/login (one identity card number only can register one account, email, id card number is not required when register)"
+              LastKnownLocation="GF.Modeling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ef2d1657-a796-4667-9b13-036556611164"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3ba9f3ce-500b-48da-8195-0ccd077eb99c"
+                  name="Register/login (one identity card number only can register one account)"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="28c36389-626e-41fc-8613-16284f86a484"
+        name="Register/login (one identity card number only can register one account, email, id card number is not required when register)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b11093b4-879e-41f5-a5b5-d43e5bd66031"
+        name="Input score after score published by government, must verify the id card number first"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d1e48994-0cf4-4313-a4e6-487f3e1c47b0"
+        name="create/modify/delete application"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e56fbf71-53ee-4454-a1bb-11d32e38f551"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c6f5b4f3-e0b2-447c-b25d-4bea05350bab"
+        name="view the statistic of his application(seperate the order of application)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="01754be6-e3e2-4510-8a1e-779b8da991c2"
+        name="View which speciality of a university is suitable for him (planned enroll number and score are suitable, each page is 3 specialities, pagination)"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="49c842d2-1901-4715-8289-a6bbaf1a9f28"
+        name="Create/modify application based on the search result"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="48111da6-6800-49cb-a337-aa62d504be89"
+        name="UMLAD"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="0bc3959d-3c7e-41ea-a43f-93b59d19d063"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1fda97ac-c392-4fae-97b8-e565c4071a53"
+                guard="Starts"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5db537da-76b5-4f3f-a4de-05d824a5c767"
+                  LastKnownName="usersubmit a register request"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="5db537da-76b5-4f3f-a4de-05d824a5c767"
+            name="usersubmit a register request"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f064afb2-82d5-42ae-9d15-cb1c6aa9ed1f"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2a975ca5-b231-4a93-b136-96236ba8d446"
+                  LastKnownName="user input  account information"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="2a975ca5-b231-4a93-b136-96236ba8d446"
+            name="user input  account information"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="36a8cfb6-4cab-49f4-8f69-fd60b1208e40"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="31204043-5fc8-419e-b18b-14cec2558d34"
+                  LastKnownName="validate account name if already exists"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="fed8f651-a720-48be-b463-50d12007b80b"
+            name="validate email address and if it already exists"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="838b4d1b-0158-418d-b351-8ab130d38c0b"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="47de6b6f-553d-47e0-ba8e-da60286f18bb"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="31204043-5fc8-419e-b18b-14cec2558d34"
+            name="validate account name if already exists"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5b14d09b-adb5-48b8-9f45-c4bc37b200f4"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="4aed17c2-5dc7-4428-be4c-894e07115821"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="4aed17c2-5dc7-4428-be4c-894e07115821"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="82773ad1-6b3e-42bb-b4d9-80d8a9e42a19"
+                guard="Yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="fed8f651-a720-48be-b463-50d12007b80b"
+                  LastKnownName="validate email address and if it already exists"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="1b6e1d60-b01d-4593-9579-ca771383efeb"
+                guard="No"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2a975ca5-b231-4a93-b136-96236ba8d446"
+                  LastKnownName="user input  account information"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="e5ce5de1-4b73-471d-ad30-7c992a05f445"
+            name="Submit create a ccount request"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7e486543-3279-4356-82b0-5be8a3e355ce"
+                guard="Finish"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="7bea490b-ae4b-4ffa-ae8b-2a72c716b97f"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="47de6b6f-553d-47e0-ba8e-da60286f18bb"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2cd55492-acc0-4e01-aa5b-837118159a02"
+                guard="Yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e5ce5de1-4b73-471d-ad30-7c992a05f445"
+                  LastKnownName="Submit create a ccount request"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e1a8709d-8d53-424c-bf19-ac6cc947adfd"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2a975ca5-b231-4a93-b136-96236ba8d446"
+                  LastKnownName="user input  account information"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <initialNode
+            Id="a287aad8-d0de-40f3-abfd-d0420d0d2c9f"
+            name="Initial2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fa82059b-cd31-4d5b-bb3b-771ccfd58c24"
+                guard="Starts"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4f9fb2d4-8148-4f7e-86fd-b196abddd527"
+                  LastKnownName="Login request"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="7bea490b-ae4b-4ffa-ae8b-2a72c716b97f"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="4f9fb2d4-8148-4f7e-86fd-b196abddd527"
+            name="Login request"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b12ad9c1-c78f-4e43-b31a-d5e619cd30b7"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="03a78fc1-a230-4152-8324-503180ea32df"
+                  LastKnownName="Decision3"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="03a78fc1-a230-4152-8324-503180ea32df"
+            name="Decision3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0507cb39-1c71-45fa-a107-98be5ff0301b"
+                guard="Yes"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="fb1543e2-e0fc-4635-b050-645da772b583"
+                  LastKnownName="Input score"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="0c790ec3-2415-4e95-9515-32e67d6d4dd9"
+            name="Check if id card number is completed"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0f2e7200-8724-44ba-8d86-a732c8fb7a26"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="63e87443-7085-411a-809b-43b25e2c74a3"
+                  LastKnownName="Decision4"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="63e87443-7085-411a-809b-43b25e2c74a3"
+            name="Decision4"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b2a114c3-e3f4-4144-914e-e22de664649c"
+                guard="Yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f7681f3e-db84-4423-a709-a45827a60861"
+                  LastKnownName="Check if score is published in that province"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d7796e8f-a18e-4b2b-8390-785c4029c7b1"
+                guard="No"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3b19fe4e-8553-44a3-9a8a-4dc1109ea5ce"
+                  LastKnownName="Please input your id card number"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="f7681f3e-db84-4423-a709-a45827a60861"
+            name="Check if score is published in that province"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fa88bfbc-92a9-460c-bf65-3e010d5bbf11"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="c8bea5da-605e-4467-b4f3-b95d5dcf7413"
+                  LastKnownName="Decision5"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="3b19fe4e-8553-44a3-9a8a-4dc1109ea5ce"
+            name="Please input your id card number"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f280fc88-1922-4a87-a8aa-72196b709f83"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3301c0c9-e8a8-4658-b1db-bda360466c4e"
+                  LastKnownName="Validate id card number and name"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="3301c0c9-e8a8-4658-b1db-bda360466c4e"
+            name="Validate id card number and name"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fd522811-066f-4776-bb4b-e8ecb1ce0801"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="a221458d-4c55-4cdf-b8a8-21b32bbe3546"
+                  LastKnownName="Decision6"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="c8bea5da-605e-4467-b4f3-b95d5dcf7413"
+            name="Decision5"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c8799d18-9b85-4d65-a03d-97ff487a00e4"
+                guard="Yes"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="c67dd12f-0477-4f40-8977-4039e10836dd"
+                  LastKnownName="Input score"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="8a5c1d3c-eec8-4c0c-b647-1ed17ebb9ca2"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c6301296-0eaa-4996-a783-706f438b23ce"
+                  LastKnownName="Prompt a message input score is not allowed now because socre is not published yet"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <sendSignalAction
+            Id="fb1543e2-e0fc-4635-b050-645da772b583"
+            name="Input score"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="32dfe645-88b7-44b8-8ae6-b2b6fd6350b4"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0c790ec3-2415-4e95-9515-32e67d6d4dd9"
+                  LastKnownName="Check if id card number is completed"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction
+            Id="c67dd12f-0477-4f40-8977-4039e10836dd"
+            name="Input score"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1a6feb91-b08e-42b0-82ac-e2c62b4c7c62"
+                guard="Finish"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="3cf33a55-d33c-494a-a376-37f93019a5a5"
+                  LastKnownName="ActivityFinal2"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <decisionNode
+            Id="a221458d-4c55-4cdf-b8a8-21b32bbe3546"
+            name="Decision6"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0288e393-83b5-4261-a656-b7ca900d48bd"
+                guard="Yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f7681f3e-db84-4423-a709-a45827a60861"
+                  LastKnownName="Check if score is published in that province"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e359fbd4-8233-43b3-a2a3-d36497dde41b"
+                guard="No"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3b19fe4e-8553-44a3-9a8a-4dc1109ea5ce"
+                  LastKnownName="Please input your id card number"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="c6301296-0eaa-4996-a783-706f438b23ce"
+            name="Prompt a message input score is not allowed now because socre is not published yet"
+            isLeaf="false" />
+          <activityFinalNode
+            Id="3cf33a55-d33c-494a-a376-37f93019a5a5"
+            name="ActivityFinal2"
+            isLeaf="false" />
+          <initialNode
+            Id="de0a7a00-e321-4576-9896-7ab41fefb4bf"
+            name="Initial3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b60cc788-9e6f-4e9b-b95c-52d594ff8550"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="1224fcbe-33d3-4b97-9a07-3f0c6ec32fd7"
+                  LastKnownName="Create a application"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <sendSignalAction
+            Id="1224fcbe-33d3-4b97-9a07-3f0c6ec32fd7"
+            name="Create a application"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="707a1941-81e7-4e0b-ae50-9b52e498f274"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="90af6806-23fa-4d14-a55d-3c0ad8a867cf"
+                  LastKnownName="Decision7"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction
+            Id="852c4869-cd01-4083-97ee-90c36c4feaf6"
+            name="Create an application"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ff4214d6-7b77-4cd5-ab9e-c69681c75948"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="bc867baf-57e2-4618-8f75-1e820afffa2c"
+                  LastKnownName="ActivityFinal3"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <decisionNode
+            Id="90af6806-23fa-4d14-a55d-3c0ad8a867cf"
+            name="Decision7"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7b0e009c-4169-4ed7-b386-e21ab9d1c885"
+                guard="Yes"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="7cda2318-bd49-4e17-941c-ceeaa74a37f3"
+                  LastKnownName="Decision8"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="5daea276-c561-4217-9d28-b042f8a9fd4f"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="66d46950-ccfa-41ad-822c-4ce66f13428c"
+                  LastKnownName="Prompt a message"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <decisionNode
+            Id="7cda2318-bd49-4e17-941c-ceeaa74a37f3"
+            name="Decision8"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="30a7760f-9194-4182-8a13-0b914bba48e4"
+                guard="No"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3e329263-7b96-4f71-a008-fa7e25970bf8"
+                  LastKnownName="Prompt a message"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="15402201-82b3-4517-8119-a965be4ab694"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1974cc60-376f-4957-b834-8e6aeae50c1f"
+                  LastKnownName="Select a speciality of a university"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="66d46950-ccfa-41ad-822c-4ce66f13428c"
+            name="Prompt a message"
+            isLeaf="false" />
+          <opaqueAction
+            Id="3e329263-7b96-4f71-a008-fa7e25970bf8"
+            name="Prompt a message"
+            isLeaf="false" />
+          <opaqueAction
+            Id="1974cc60-376f-4957-b834-8e6aeae50c1f"
+            name="Select a speciality of a university"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ef90e730-a4de-4164-8065-3465d7b4a0d3"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="68cec498-0ee2-438d-934f-9061bdefa0ab"
+                  LastKnownName="Decision9"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="68cec498-0ee2-438d-934f-9061bdefa0ab"
+            name="Decision9"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="70c453f2-2f95-4e40-8b56-5992ac1c586d"
+                guard="No"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="481c9a45-da5d-4479-aaf2-b141339f6da1"
+                  LastKnownName="Prompt a message saying plese select a speciality of your type"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="b920db85-5db8-4f32-ae55-a479ac36b889"
+                guard="Yes"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="852c4869-cd01-4083-97ee-90c36c4feaf6"
+                  LastKnownName="Create an application"
+                  LastKnownLocation="GF.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="481c9a45-da5d-4479-aaf2-b141339f6da1"
+            name="Prompt a message saying plese select a speciality of your type"
+            isLeaf="false" />
+          <activityFinalNode
+            Id="bc867baf-57e2-4618-8f75-1e820afffa2c"
+            name="ActivityFinal3"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

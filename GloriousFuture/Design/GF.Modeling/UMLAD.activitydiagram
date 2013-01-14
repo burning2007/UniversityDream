@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="3f33ebe8-48dc-47ca-8c5c-c5246cbca209" name="UMLAD" linkedPackageId="9be107aa-0a72-4538-a7cf-8571cf153014" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="a04e6d5f-e04d-4878-9877-e364cf93903b">
+      <elementDefinition Id="dd7f089e-d99d-48e4-9656-f1964a674349" />
+      <body>Check if id card number is completed</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="6810bce4-0b91-4bcd-b490-8c2f978a8554" LastKnownName="Decision7" />
+      </annotatedElements>
+    </comment>
+    <comment Id="4e97544e-f831-498b-ba13-d5ba9ace2951">
+      <elementDefinition Id="85571e37-e1ec-4e79-b708-d461901e36a6" />
+      <body>Check if score is completed</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="79abea65-ce58-4b98-9795-52a0d5bbfdbf" LastKnownName="Decision8" />
+      </annotatedElements>
+    </comment>
+    <comment Id="3734f0fe-7080-4be6-b4c0-ea35e64f4e68">
+      <elementDefinition Id="a8627c9d-f350-4f1b-9724-bb7569ac7de8" />
+      <body>if match the speciality type with you
+</body>
+      <annotatedElements>
+        <decisionNodeMoniker Id="9c8d3ebb-f0a0-4c8a-9e50-3b818749adcc" LastKnownName="Decision9" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="b484e564-14a8-4d81-8bc2-fc31b46c6770">
+      <profileInstance Id="83287430-3bdf-424e-9259-5401daccec52" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b5385bfe-4009-478b-98f0-df71b8a3d6dc">
+      <profileInstance Id="56558794-153d-44d2-a20d-7f4cf667ef6a" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="a6c89aca-9a37-476b-ae17-d5618d946627" name="UMLAD" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="48111da6-6800-49cb-a337-aa62d504be89" />
+        <nodes>
+          <initialNode Id="6513f8d1-57ed-4b68-a241-74e2896b5eb4" name="Initial1" isLeaf="false">
+            <elementDefinition Id="0bc3959d-3c7e-41ea-a43f-93b59d19d063" />
+            <flowNodeTargets>
+              <controlFlow Id="99c4e438-a665-4472-ac4f-823bb2723fb2" guard="Starts" isLeaf="false">
+                <opaqueActionMoniker Id="74814950-7355-46e0-9e1d-ee9db8aead2d" LastKnownName="usersubmit a register request" />
+                <elementDefinition Id="1fda97ac-c392-4fae-97b8-e565c4071a53" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="74814950-7355-46e0-9e1d-ee9db8aead2d" name="usersubmit a register request" isLeaf="false">
+            <elementDefinition Id="5db537da-76b5-4f3f-a4de-05d824a5c767" />
+            <flowNodeTargets>
+              <controlFlow Id="cf252560-cca9-4482-a19f-fbb187202611" isLeaf="false">
+                <opaqueActionMoniker Id="3896d3ca-3cba-4160-9617-9160c038745e" LastKnownName="user input  account information" />
+                <elementDefinition Id="f064afb2-82d5-42ae-9d15-cb1c6aa9ed1f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="3896d3ca-3cba-4160-9617-9160c038745e" name="user input  account information" isLeaf="false">
+            <elementDefinition Id="2a975ca5-b231-4a93-b136-96236ba8d446" />
+            <flowNodeTargets>
+              <controlFlow Id="145f8f93-9143-4e17-932f-e87d61f42799" isLeaf="false">
+                <opaqueActionMoniker Id="83d39ac2-4e71-41f3-9a46-78aea1a58163" LastKnownName="validate account name if already exists" />
+                <elementDefinition Id="36a8cfb6-4cab-49f4-8f69-fd60b1208e40" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="c49d1f5c-ed28-4a28-8e8c-b17c73be9ca3" name="validate email address and if it already exists" isLeaf="false">
+            <elementDefinition Id="fed8f651-a720-48be-b463-50d12007b80b" />
+            <flowNodeTargets>
+              <controlFlow Id="2bef19da-5334-478f-984d-ccdbe74de793" isLeaf="false">
+                <decisionNodeMoniker Id="517d8238-e04b-4d1a-a0a4-16a1b94881eb" LastKnownName="Decision2" />
+                <elementDefinition Id="838b4d1b-0158-418d-b351-8ab130d38c0b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="83d39ac2-4e71-41f3-9a46-78aea1a58163" name="validate account name if already exists" isLeaf="false">
+            <elementDefinition Id="31204043-5fc8-419e-b18b-14cec2558d34" />
+            <flowNodeTargets>
+              <controlFlow Id="8a2b5d05-d498-4674-9348-0ef9ff74e098" isLeaf="false">
+                <decisionNodeMoniker Id="c1b8aaf9-9175-4d11-bc8a-e1d14630b413" LastKnownName="Decision1" />
+                <elementDefinition Id="5b14d09b-adb5-48b8-9f45-c4bc37b200f4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="c1b8aaf9-9175-4d11-bc8a-e1d14630b413" name="Decision1" isLeaf="false">
+            <elementDefinition Id="4aed17c2-5dc7-4428-be4c-894e07115821" />
+            <flowNodeTargets>
+              <controlFlow Id="787fc904-9d37-48b7-a745-92f74644fa0d" guard="Yes" isLeaf="false">
+                <opaqueActionMoniker Id="c49d1f5c-ed28-4a28-8e8c-b17c73be9ca3" LastKnownName="validate email address and if it already exists" />
+                <elementDefinition Id="82773ad1-6b3e-42bb-b4d9-80d8a9e42a19" />
+              </controlFlow>
+              <controlFlow Id="e54fe3f7-f48a-48c3-8d98-810ed23f8928" guard="No" isLeaf="false">
+                <opaqueActionMoniker Id="3896d3ca-3cba-4160-9617-9160c038745e" LastKnownName="user input  account information" />
+                <elementDefinition Id="1b6e1d60-b01d-4593-9579-ca771383efeb" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="7b7da9f1-b977-471a-8b2b-a84a8e59d08e" name="Submit create a ccount request" isLeaf="false">
+            <elementDefinition Id="e5ce5de1-4b73-471d-ad30-7c992a05f445" />
+            <flowNodeTargets>
+              <controlFlow Id="f596b5b3-e001-4190-8114-924a2a48aa58" guard="Finish" isLeaf="false">
+                <activityFinalNodeMoniker Id="b42af232-3ee8-4335-a280-0bcaf749d966" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="7e486543-3279-4356-82b0-5be8a3e355ce" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="517d8238-e04b-4d1a-a0a4-16a1b94881eb" name="Decision2" isLeaf="false">
+            <elementDefinition Id="47de6b6f-553d-47e0-ba8e-da60286f18bb" />
+            <flowNodeTargets>
+              <controlFlow Id="c4c2ae95-3183-4129-a975-64b9889f001d" guard="Yes" isLeaf="false">
+                <opaqueActionMoniker Id="7b7da9f1-b977-471a-8b2b-a84a8e59d08e" LastKnownName="Submit create a ccount request" />
+                <elementDefinition Id="2cd55492-acc0-4e01-aa5b-837118159a02" />
+              </controlFlow>
+              <controlFlow Id="dceb3fb2-7259-451f-b1eb-383e93506cb0" isLeaf="false">
+                <opaqueActionMoniker Id="3896d3ca-3cba-4160-9617-9160c038745e" LastKnownName="user input  account information" />
+                <elementDefinition Id="e1a8709d-8d53-424c-bf19-ac6cc947adfd" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <initialNode Id="7198f0f3-504a-40b9-9699-910c19216474" name="Initial2" isLeaf="false">
+            <elementDefinition Id="a287aad8-d0de-40f3-abfd-d0420d0d2c9f" />
+            <flowNodeTargets>
+              <controlFlow Id="88085a95-cd2b-498d-8ff7-e8fd9516ad60" guard="Starts" isLeaf="false">
+                <opaqueActionMoniker Id="87d8f98d-78df-48b6-a391-ff8f67077378" LastKnownName="Login request" />
+                <elementDefinition Id="fa82059b-cd31-4d5b-bb3b-771ccfd58c24" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode Id="b42af232-3ee8-4335-a280-0bcaf749d966" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="7bea490b-ae4b-4ffa-ae8b-2a72c716b97f" />
+          </activityFinalNode>
+          <opaqueAction Id="87d8f98d-78df-48b6-a391-ff8f67077378" name="Login request" isLeaf="false">
+            <elementDefinition Id="4f9fb2d4-8148-4f7e-86fd-b196abddd527" />
+            <flowNodeTargets>
+              <controlFlow Id="bb3a158b-588d-4f88-aca3-5890549aa0a9" isLeaf="false">
+                <decisionNodeMoniker Id="69163c45-5f2c-45c2-b53e-b65c8d66e349" LastKnownName="Decision3" />
+                <elementDefinition Id="b12ad9c1-c78f-4e43-b31a-d5e619cd30b7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="69163c45-5f2c-45c2-b53e-b65c8d66e349" name="Decision3" isLeaf="false">
+            <elementDefinition Id="03a78fc1-a230-4152-8324-503180ea32df" />
+            <flowNodeTargets>
+              <controlFlow Id="71e16c0e-9bde-448f-8de0-2a0f107109b8" guard="Yes" isLeaf="false">
+                <sendSignalActionMoniker Id="bc4429fe-c4df-4c8c-9212-d477c73a9ebc" LastKnownName="Input score" />
+                <elementDefinition Id="0507cb39-1c71-45fa-a107-98be5ff0301b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="f6ebb281-3728-497a-bc3e-61c4a7d57232" name="Check if id card number is completed" isLeaf="false">
+            <elementDefinition Id="0c790ec3-2415-4e95-9515-32e67d6d4dd9" />
+            <flowNodeTargets>
+              <controlFlow Id="d6302fdc-3849-4e86-97c7-d80322a70960" isLeaf="false">
+                <decisionNodeMoniker Id="8ee9ec27-5844-43a3-8a26-f01743477ee9" LastKnownName="Decision4" />
+                <elementDefinition Id="0f2e7200-8724-44ba-8d86-a732c8fb7a26" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="8ee9ec27-5844-43a3-8a26-f01743477ee9" name="Decision4" isLeaf="false">
+            <elementDefinition Id="63e87443-7085-411a-809b-43b25e2c74a3" />
+            <flowNodeTargets>
+              <controlFlow Id="033b8fc2-1fee-490b-b885-6c289c89762e" guard="Yes" isLeaf="false">
+                <opaqueActionMoniker Id="86def8af-fc38-4bc1-9904-ae29bdf507c6" LastKnownName="Check if score is published in that province" />
+                <elementDefinition Id="b2a114c3-e3f4-4144-914e-e22de664649c" />
+              </controlFlow>
+              <controlFlow Id="f3fbc753-f790-4b8c-a193-372bbd6d811e" guard="No" isLeaf="false">
+                <opaqueActionMoniker Id="81e4e126-a3ae-4a37-8380-39ea27ba3a6f" LastKnownName="Please input your id card number" />
+                <elementDefinition Id="d7796e8f-a18e-4b2b-8390-785c4029c7b1" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="86def8af-fc38-4bc1-9904-ae29bdf507c6" name="Check if score is published in that province" isLeaf="false">
+            <elementDefinition Id="f7681f3e-db84-4423-a709-a45827a60861" />
+            <flowNodeTargets>
+              <controlFlow Id="68d8306e-e88d-4f92-8620-1586eecb79a2" isLeaf="false">
+                <decisionNodeMoniker Id="7d965a83-3d5f-4d24-9b32-7b0f8e2db010" LastKnownName="Decision5" />
+                <elementDefinition Id="fa88bfbc-92a9-460c-bf65-3e010d5bbf11" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="81e4e126-a3ae-4a37-8380-39ea27ba3a6f" name="Please input your id card number" isLeaf="false">
+            <elementDefinition Id="3b19fe4e-8553-44a3-9a8a-4dc1109ea5ce" />
+            <flowNodeTargets>
+              <controlFlow Id="14b27a90-e8c9-4466-ae16-323e0d0625b4" isLeaf="false">
+                <opaqueActionMoniker Id="1957e17f-cba3-4878-b4b8-7a81ca1ffc22" LastKnownName="Validate id card number and name" />
+                <elementDefinition Id="f280fc88-1922-4a87-a8aa-72196b709f83" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="1957e17f-cba3-4878-b4b8-7a81ca1ffc22" name="Validate id card number and name" isLeaf="false">
+            <elementDefinition Id="3301c0c9-e8a8-4658-b1db-bda360466c4e" />
+            <flowNodeTargets>
+              <controlFlow Id="2f368098-8826-48ea-9828-57d2e78b86d1" isLeaf="false">
+                <decisionNodeMoniker Id="e5136eeb-b330-4ab8-8886-0e9fe79f7b20" LastKnownName="Decision6" />
+                <elementDefinition Id="fd522811-066f-4776-bb4b-e8ecb1ce0801" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="7d965a83-3d5f-4d24-9b32-7b0f8e2db010" name="Decision5" isLeaf="false">
+            <elementDefinition Id="c8bea5da-605e-4467-b4f3-b95d5dcf7413" />
+            <flowNodeTargets>
+              <controlFlow Id="ec970dbd-e849-4c1e-8d1b-eee55f2eb78e" guard="Yes" isLeaf="false">
+                <acceptEventActionMoniker Id="4879c4b8-bed3-4106-9f7a-9a70705622a6" LastKnownName="Input score" />
+                <elementDefinition Id="c8799d18-9b85-4d65-a03d-97ff487a00e4" />
+              </controlFlow>
+              <controlFlow Id="b3b4235b-ef23-447e-bf90-95613d46da8e" isLeaf="false">
+                <opaqueActionMoniker Id="3059131f-0925-41f5-ba27-2e6d1f82f7d4" LastKnownName="Prompt a message input score is not allowed now because socre is not published yet" />
+                <elementDefinition Id="8a5c1d3c-eec8-4c0c-b647-1ed17ebb9ca2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <sendSignalAction Id="bc4429fe-c4df-4c8c-9212-d477c73a9ebc" name="Input score" isLeaf="false">
+            <elementDefinition Id="fb1543e2-e0fc-4635-b050-645da772b583" />
+            <flowNodeTargets>
+              <controlFlow Id="ec403f8b-0963-4886-b346-d7defc8393f3" isLeaf="false">
+                <opaqueActionMoniker Id="f6ebb281-3728-497a-bc3e-61c4a7d57232" LastKnownName="Check if id card number is completed" />
+                <elementDefinition Id="32dfe645-88b7-44b8-8ae6-b2b6fd6350b4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction Id="4879c4b8-bed3-4106-9f7a-9a70705622a6" name="Input score" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="c67dd12f-0477-4f40-8977-4039e10836dd" />
+            <flowNodeTargets>
+              <controlFlow Id="e196a7a8-316f-4d04-a53d-abf065cfcc86" guard="Finish" isLeaf="false">
+                <activityFinalNodeMoniker Id="a9ff209b-91c2-4951-a364-88df905359c2" LastKnownName="ActivityFinal2" />
+                <elementDefinition Id="1a6feb91-b08e-42b0-82ac-e2c62b4c7c62" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <decisionNode Id="e5136eeb-b330-4ab8-8886-0e9fe79f7b20" name="Decision6" isLeaf="false">
+            <elementDefinition Id="a221458d-4c55-4cdf-b8a8-21b32bbe3546" />
+            <flowNodeTargets>
+              <controlFlow Id="6624fba6-a115-4e78-884d-4adab913c4ca" guard="Yes" isLeaf="false">
+                <opaqueActionMoniker Id="86def8af-fc38-4bc1-9904-ae29bdf507c6" LastKnownName="Check if score is published in that province" />
+                <elementDefinition Id="0288e393-83b5-4261-a656-b7ca900d48bd" />
+              </controlFlow>
+              <controlFlow Id="51b6b74b-7a71-4e43-953b-aa51655a56ef" guard="No" isLeaf="false">
+                <opaqueActionMoniker Id="81e4e126-a3ae-4a37-8380-39ea27ba3a6f" LastKnownName="Please input your id card number" />
+                <elementDefinition Id="e359fbd4-8233-43b3-a2a3-d36497dde41b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="3059131f-0925-41f5-ba27-2e6d1f82f7d4" name="Prompt a message input score is not allowed now because socre is not published yet" isLeaf="false">
+            <elementDefinition Id="c6301296-0eaa-4996-a783-706f438b23ce" />
+          </opaqueAction>
+          <activityFinalNode Id="a9ff209b-91c2-4951-a364-88df905359c2" name="ActivityFinal2" isLeaf="false">
+            <elementDefinition Id="3cf33a55-d33c-494a-a376-37f93019a5a5" />
+          </activityFinalNode>
+          <initialNode Id="7a66d586-292f-4de7-aee6-7f1498a006b5" name="Initial3" isLeaf="false">
+            <elementDefinition Id="de0a7a00-e321-4576-9896-7ab41fefb4bf" />
+            <flowNodeTargets>
+              <controlFlow Id="c2801bc4-2d88-4e37-ad12-c639ea17d43e" isLeaf="false">
+                <sendSignalActionMoniker Id="69c618a5-1095-4d1a-b82d-49cdaf1724d6" LastKnownName="Create a application" />
+                <elementDefinition Id="b60cc788-9e6f-4e9b-b95c-52d594ff8550" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <sendSignalAction Id="69c618a5-1095-4d1a-b82d-49cdaf1724d6" name="Create a application" isLeaf="false">
+            <elementDefinition Id="1224fcbe-33d3-4b97-9a07-3f0c6ec32fd7" />
+            <flowNodeTargets>
+              <controlFlow Id="a8ff0d0d-f378-4def-9c26-a95245c89629" isLeaf="false">
+                <decisionNodeMoniker Id="6810bce4-0b91-4bcd-b490-8c2f978a8554" LastKnownName="Decision7" />
+                <elementDefinition Id="707a1941-81e7-4e0b-ae50-9b52e498f274" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <acceptEventAction Id="ad333e82-d74d-40c5-9e55-2ae52555e0cb" name="Create an application" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="852c4869-cd01-4083-97ee-90c36c4feaf6" />
+            <flowNodeTargets>
+              <controlFlow Id="aa69e467-4c0f-4182-8651-3e1c49824d7b" isLeaf="false">
+                <activityFinalNodeMoniker Id="8f0b3fbe-2b78-421d-9459-b12c91833197" LastKnownName="ActivityFinal3" />
+                <elementDefinition Id="ff4214d6-7b77-4cd5-ab9e-c69681c75948" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <decisionNode Id="6810bce4-0b91-4bcd-b490-8c2f978a8554" name="Decision7" isLeaf="false">
+            <elementDefinition Id="90af6806-23fa-4d14-a55d-3c0ad8a867cf" />
+            <flowNodeTargets>
+              <controlFlow Id="63f022ee-6bd9-475e-b48e-15b9550c062b" guard="Yes" isLeaf="false">
+                <decisionNodeMoniker Id="79abea65-ce58-4b98-9795-52a0d5bbfdbf" LastKnownName="Decision8" />
+                <elementDefinition Id="7b0e009c-4169-4ed7-b386-e21ab9d1c885" />
+              </controlFlow>
+              <controlFlow Id="1eb3bb52-8c96-488f-86db-f8e5ed6667a0" isLeaf="false">
+                <opaqueActionMoniker Id="43352a0a-5ec1-4afa-ba70-c19553ae9c28" LastKnownName="Prompt a message" />
+                <elementDefinition Id="5daea276-c561-4217-9d28-b042f8a9fd4f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <decisionNode Id="79abea65-ce58-4b98-9795-52a0d5bbfdbf" name="Decision8" isLeaf="false">
+            <elementDefinition Id="7cda2318-bd49-4e17-941c-ceeaa74a37f3" />
+            <flowNodeTargets>
+              <controlFlow Id="3ad13cc2-bda7-4c28-aa75-3dbf039d4c50" guard="No" isLeaf="false">
+                <opaqueActionMoniker Id="234393b5-f03f-4832-a553-466b2ecad0ce" LastKnownName="Prompt a message" />
+                <elementDefinition Id="30a7760f-9194-4182-8a13-0b914bba48e4" />
+              </controlFlow>
+              <controlFlow Id="ec2662e5-3771-467b-a8a9-53e4cf6fb89c" isLeaf="false">
+                <opaqueActionMoniker Id="4d7c950a-5675-49e5-8254-35e2cdbc2a7a" LastKnownName="Select a speciality of a university" />
+                <elementDefinition Id="15402201-82b3-4517-8119-a965be4ab694" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="43352a0a-5ec1-4afa-ba70-c19553ae9c28" name="Prompt a message" isLeaf="false">
+            <elementDefinition Id="66d46950-ccfa-41ad-822c-4ce66f13428c" />
+          </opaqueAction>
+          <opaqueAction Id="234393b5-f03f-4832-a553-466b2ecad0ce" name="Prompt a message" isLeaf="false">
+            <elementDefinition Id="3e329263-7b96-4f71-a008-fa7e25970bf8" />
+          </opaqueAction>
+          <opaqueAction Id="4d7c950a-5675-49e5-8254-35e2cdbc2a7a" name="Select a speciality of a university" isLeaf="false">
+            <elementDefinition Id="1974cc60-376f-4957-b834-8e6aeae50c1f" />
+            <flowNodeTargets>
+              <controlFlow Id="b28a86ef-3c1d-4ba3-b5ec-fcb3739a922b" isLeaf="false">
+                <decisionNodeMoniker Id="9c8d3ebb-f0a0-4c8a-9e50-3b818749adcc" LastKnownName="Decision9" />
+                <elementDefinition Id="ef90e730-a4de-4164-8065-3465d7b4a0d3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="9c8d3ebb-f0a0-4c8a-9e50-3b818749adcc" name="Decision9" isLeaf="false">
+            <elementDefinition Id="68cec498-0ee2-438d-934f-9061bdefa0ab" />
+            <flowNodeTargets>
+              <controlFlow Id="2cd2c62d-1a89-4b83-b18f-093e2201dcdc" guard="No" isLeaf="false">
+                <opaqueActionMoniker Id="c1c57c3d-0c86-4a78-93b5-3440eb70bdee" LastKnownName="Prompt a message saying plese select a speciality of your type" />
+                <elementDefinition Id="70c453f2-2f95-4e40-8b56-5992ac1c586d" />
+              </controlFlow>
+              <controlFlow Id="4a71b835-9bd3-467b-a480-3148cfc34554" guard="Yes" isLeaf="false">
+                <acceptEventActionMoniker Id="ad333e82-d74d-40c5-9e55-2ae52555e0cb" LastKnownName="Create an application" />
+                <elementDefinition Id="b920db85-5db8-4f32-ae55-a479ac36b889" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="c1c57c3d-0c86-4a78-93b5-3440eb70bdee" name="Prompt a message saying plese select a speciality of your type" isLeaf="false">
+            <elementDefinition Id="481c9a45-da5d-4479-aaf2-b141339f6da1" />
+          </opaqueAction>
+          <activityFinalNode Id="8f0b3fbe-2b78-421d-9459-b12c91833197" name="ActivityFinal3" isLeaf="false">
+            <elementDefinition Id="bc867baf-57e2-4618-8f75-1e820afffa2c" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="9be107aa-0a72-4538-a7cf-8571cf153014" name="GF.Modeling">
+    <elementDefinition Id="d7cfcbb6-fa5f-485a-b716-77d73598e9a2" />
+  </package>
+</activityRootModel>

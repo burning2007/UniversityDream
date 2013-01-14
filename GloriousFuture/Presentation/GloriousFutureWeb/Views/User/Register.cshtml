@@ -1,0 +1,187 @@
+﻿@model GloriousFutureWeb.Models.RegisterModel
+
+@{
+    ViewBag.Title = "注册用户";
+}
+
+@Styles.Render("~/Content/themes/base/css")
+@Scripts.Render("~/bundles/external")
+
+<h2>注册用户</h2>
+
+<div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">个人用户</a></li>
+            <li><a href="#tabs-2">企业用户</a></li>
+        </ul>
+        <div id="tabs-1">
+            @using (Html.BeginForm()) {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <fieldset>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.UserName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.UserName)
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Password)
+                    </div>
+                     <div class="editor-field">
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.ConfirmedPassword)
+                    </div>
+                     <div class="editor-field">
+                        @Html.EditorFor(model => model.ConfirmedPassword)
+                        @Html.ValidationMessageFor(model => model.ConfirmedPassword)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Email)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.QQ)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.QQ)
+                        @Html.ValidationMessageFor(model => model.QQ)
+                        @Html.Raw("<input type='hidden' name='UniversityId' value='"+ Guid.Empty + "' />")
+                        <input type="hidden" name="UniversityName" value="默认大学"/>
+                    </div>
+                    <p>
+                        <input type="submit" value="注册" />
+                    </p>
+                </fieldset>
+            }
+        </div>
+        <div id="tabs-2">
+            @using (Html.BeginForm()) {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UserName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.UserName)
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                 <div class="editor-field">
+                    @Html.EditorFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                 <div class="editor-label">
+                    @Html.LabelFor(model => model.ConfirmedPassword)
+                </div>
+                 <div class="editor-field">
+                    @Html.EditorFor(model => model.ConfirmedPassword)
+                    @Html.ValidationMessageFor(model => model.ConfirmedPassword)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                 <div class="editor-label">
+                    @Html.LabelFor(model => model.QQ)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.QQ)
+                    @Html.ValidationMessageFor(model => model.QQ)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.UniversityName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.UniversityName)
+                    @Html.ValidationMessageFor(model => model.UniversityName)
+                    <input type="hidden" id="UniversityId" name="UniversityId" />
+                </div>
+                <p>
+                    <input type="submit" value="注册" />
+                </p>
+                </fieldset>
+            }
+        </div>
+    </div>
+
+<div id="UniversitySelection" title="请选择大学" > 
+    <form>
+     <table id="Province" class="Province">
+            <tbody>
+                <tr>
+                    <td>省份：</td>
+                    <td>
+                        <ul>
+                            @foreach (GF.Domain.Context.Region province in ViewBag.Provinces)
+                            {
+                                @Ajax.ActionLink(province.Name, "SearchUniversity", "User", new { provinceId = province.Id }, new AjaxOptions { HttpMethod = "GET", InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace, UpdateTargetId = "SearchResults" });
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="SearchResults">
+            <ul class="University">
+                @foreach (GF.Domain.Context.University university in ViewBag.Universities)
+                {
+                    @Html.Raw("<li><a href='javascript:void(0);' onclick=getSelectedUniversity('" + university.Name + "','" + university.Id.ToString() + "') >" + university.Name + "</a></li>");
+                }
+            </ul>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+    $.fx.speeds._default = 100;
+
+    $(function () {
+        $("#tabs").tabs(
+//        {
+//            event: "mouseover"
+//        }
+        );
+
+        $("#UniversitySelection").dialog({
+            autoOpen: false,
+            left: 358,
+            width: 700,
+            height: 500,
+            top: 100,
+            modal: true,
+            show: "blind",
+            hide: "explode"
+        });
+
+        $("#UniversityName").click(function () {
+            $("#UniversitySelection").dialog("open");
+            return false;
+        });
+    });
+
+    function getSelectedUniversity(universityName, universityId) {
+        $("#UniversityName").val(universityName);
+        $("#UniversityId").val(universityId);
+        $("#UniversitySelection").dialog("close");
+    }
+
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GFDomainContextStoreContainer" CdmEntityContainer="ApplicationContext">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Account)">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ComplexProperty Name="Zone" TypeName="GF.Domain.Context.Zone">
+            <ScalarProperty Name="City" ColumnName="Zone_City" />
+            <ScalarProperty Name="Province" ColumnName="Zone_Province" />
+          </ComplexProperty>
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="IdentityCardNumber" ColumnName="IdentityCardNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.University)">
+        <MappingFragment StoreEntitySet="Universities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UniversityType" ColumnName="UniversityType" />
+          <ScalarProperty Name="Kind" ColumnName="Kind" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="BriefIntroduction" ColumnName="BriefIntroduction" />
+          <ScalarProperty Name="IsEducationDepartment" ColumnName="IsEducationDepartment" />
+          <ScalarProperty Name="Is985" ColumnName="Is985" />
+          <ScalarProperty Name="Is211" ColumnName="Is211" />
+          <ComplexProperty Name="Zone" TypeName="GF.Domain.Context.Zone">
+            <ScalarProperty Name="City" ColumnName="Zone_City" />
+            <ScalarProperty Name="Province" ColumnName="Zone_Province" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollPlans">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.EnrollPlan)">
+        <MappingFragment StoreEntitySet="EnrollPlans">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="PlannedEnrollNumber" ColumnName="PlannedEnrollNumber" />
+          <ScalarProperty Name="UniversitySpecialityId" ColumnName="UniversitySpecialityId" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="IsDirectional" ColumnName="IsDirectional" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UniversityAcceptanceStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.UniversityAcceptanceStatistic)">
+        <MappingFragment StoreEntitySet="UniversityAcceptanceStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="ExceedScore" ColumnName="ExceedScore" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialityAcceptanceStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.SpecialityAcceptanceStatistic)">
+        <MappingFragment StoreEntitySet="SpecialityAcceptanceStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UniversityEnrollStatisticId" ColumnName="UniversityEnrollStatisticId" />
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specialities">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Speciality)">
+        <MappingFragment StoreEntitySet="Specialities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Application)">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="ApplicationSequence" ColumnName="ApplicationSequence" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+          <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Achievements">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.Achievement)">
+        <MappingFragment StoreEntitySet="Achievements">
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="SpecialityType" ColumnName="SpecialityType" />
+          <ScalarProperty Name="ACEENumber" ColumnName="ACEENumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScorePublishes">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.ScorePublish)">
+        <MappingFragment StoreEntitySet="ScorePublishes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+          <ScalarProperty Name="CollegeEntranceExamTime" ColumnName="CollegeEntranceExamTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.ApplicationStatistic)">
+        <MappingFragment StoreEntitySet="ApplicationStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+          <ScalarProperty Name="SuccessQuantity" ColumnName="SuccessQuantity" />
+          <ScalarProperty Name="FailQuantity" ColumnName="FailQuantity" />
+          <ScalarProperty Name="ApplicationSequence" ColumnName="ApplicationSequence" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AchievementHistories">
+      <EntityTypeMapping TypeName="IsTypeOf(GF.Domain.Context.AchievementHistory)">
+        <MappingFragment StoreEntitySet="AchivementHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="SpecialityType" ColumnName="SpecialityType" />
+          <ScalarProperty Name="ACEENumber" ColumnName="ACEENumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetApplicationSequenceStatistic" FunctionName="GF.Domain.Context.Store.usp_ApplicationSequenceStatistic">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GF.Domain.Context.ApplicationSequenceStatistic_DTO">
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="ApplicationSequence" ColumnName="ApplicationSequence" />
+          <ScalarProperty Name="ApplicantQuantity" ColumnName="ApplicantQuantity" />
+          <ScalarProperty Name="YourScoreRank" ColumnName="YourScoreRank" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

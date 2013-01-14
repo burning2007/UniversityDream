@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GloriousFuture.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="GloriousFutureStoreContainer">
+    <EntitySet Name="Users" EntityType="GloriousFuture.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Universities" EntityType="GloriousFuture.Store.Universities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EnrollPlans" EntityType="GloriousFuture.Store.EnrollPlans" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UniversityAcceptanceStatistics" EntityType="GloriousFuture.Store.UniversityAcceptanceStatistics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecialityAcceptanceStatistics" EntityType="GloriousFuture.Store.SpecialityAcceptanceStatistics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Specialities" EntityType="GloriousFuture.Store.Specialities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Applications" EntityType="GloriousFuture.Store.Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Achievements" EntityType="GloriousFuture.Store.Achievements" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ApplicationStatistic_DTO" EntityType="GloriousFuture.Store.ApplicationStatistic_DTO" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SpecialityEnrollStatisticUniversityEnrollStatistic" Association="GloriousFuture.Store.SpecialityEnrollStatisticUniversityEnrollStatistic">
+      <End Role="SpecialityEnrollStatistic" EntitySet="SpecialityAcceptanceStatistics" />
+      <End Role="UniversityEnrollStatistic" EntitySet="UniversityAcceptanceStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="UniversityEnrollStatisticUniversity" Association="GloriousFuture.Store.UniversityEnrollStatisticUniversity">
+      <End Role="UniversityEnrollStatistic" EntitySet="UniversityAcceptanceStatistics" />
+      <End Role="University" EntitySet="Universities" />
+    </AssociationSet>
+    <AssociationSet Name="SpecialityAcceptanceStatisticSpeciality" Association="GloriousFuture.Store.SpecialityAcceptanceStatisticSpeciality">
+      <End Role="SpecialityAcceptanceStatistic" EntitySet="SpecialityAcceptanceStatistics" />
+      <End Role="Speciality" EntitySet="Specialities" />
+    </AssociationSet>
+    <AssociationSet Name="ApplicationUser" Association="GloriousFuture.Store.ApplicationUser">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="EnrollPlanUniversity" Association="GloriousFuture.Store.EnrollPlanUniversity">
+      <End Role="EnrollPlan" EntitySet="EnrollPlans" />
+      <End Role="University" EntitySet="Universities" />
+    </AssociationSet>
+    <AssociationSet Name="EnrollPlanSpeciality" Association="GloriousFuture.Store.EnrollPlanSpeciality">
+      <End Role="EnrollPlan" EntitySet="EnrollPlans" />
+      <End Role="Speciality" EntitySet="Specialities" />
+    </AssociationSet>
+    <AssociationSet Name="ApplicationUniversity" Association="GloriousFuture.Store.ApplicationUniversity">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="University" EntitySet="Universities" />
+    </AssociationSet>
+    <AssociationSet Name="ApplicationSpeciality" Association="GloriousFuture.Store.ApplicationSpeciality">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="Speciality" EntitySet="Specialities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AchievementUser" Association="GloriousFuture.Store.FK_AchievementUser">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Achievement" EntitySet="Achievements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="QQ" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Coins" Type="int" Nullable="false" />
+    <Property Name="Zone_City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Zone_Province" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Universities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UniversityType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kind" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Website" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BriefIntroduction" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsEducationDepartment" Type="bit" Nullable="false" />
+    <Property Name="Is985" Type="bit" Nullable="false" />
+    <Property Name="Is211" Type="bit" Nullable="false" />
+    <Property Name="Zone_City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Zone_Province" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnrollPlans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PlannedEnrollNumber" Type="int" Nullable="false" />
+    <Property Name="UniversitySpecialityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDirectional" Type="bit" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UniversityAcceptanceStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+    <Property Name="HighestScore" Type="float" Nullable="false" />
+    <Property Name="LowestScore" Type="float" Nullable="false" />
+    <Property Name="AverageScore" Type="float" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExceedScore" Type="float" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialityAcceptanceStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniversityEnrollStatisticId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="HighestScore" Type="float" Nullable="false" />
+    <Property Name="LowestScore" Type="float" Nullable="false" />
+    <Property Name="AverageScore" Type="float" Nullable="false" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specialities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Year" Type="datetime" Nullable="false" />
+    <Property Name="Batch" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sequence" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UniversityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SpecialityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Achievements">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Score" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplicationStatistic_DTO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HighestScore" Type="float" Nullable="false" />
+    <Property Name="LowestScore" Type="float" Nullable="false" />
+    <Property Name="AverageScore" Type="float" Nullable="false" />
+    <Property Name="Totality" Type="int" Nullable="false" />
+    <Property Name="ScoreRank" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="SpecialityEnrollStatisticUniversityEnrollStatistic">
+    <End Role="SpecialityEnrollStatistic" Type="GloriousFuture.Store.SpecialityAcceptanceStatistics" Multiplicity="*" />
+    <End Role="UniversityEnrollStatistic" Type="GloriousFuture.Store.UniversityAcceptanceStatistics" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UniversityEnrollStatistic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityEnrollStatistic">
+        <PropertyRef Name="UniversityEnrollStatisticId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UniversityEnrollStatisticUniversity">
+    <End Role="UniversityEnrollStatistic" Type="GloriousFuture.Store.UniversityAcceptanceStatistics" Multiplicity="*" />
+    <End Role="University" Type="GloriousFuture.Store.Universities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UniversityEnrollStatistic">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SpecialityAcceptanceStatisticSpeciality">
+    <End Role="SpecialityAcceptanceStatistic" Type="GloriousFuture.Store.SpecialityAcceptanceStatistics" Multiplicity="*" />
+    <End Role="Speciality" Type="GloriousFuture.Store.Specialities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialityAcceptanceStatistic">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ApplicationUser">
+    <End Role="Application" Type="GloriousFuture.Store.Applications" Multiplicity="*" />
+    <End Role="User" Type="GloriousFuture.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnrollPlanUniversity">
+    <End Role="EnrollPlan" Type="GloriousFuture.Store.EnrollPlans" Multiplicity="*" />
+    <End Role="University" Type="GloriousFuture.Store.Universities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EnrollPlan">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnrollPlanSpeciality">
+    <End Role="EnrollPlan" Type="GloriousFuture.Store.EnrollPlans" Multiplicity="*" />
+    <End Role="Speciality" Type="GloriousFuture.Store.Specialities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EnrollPlan">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ApplicationUniversity">
+    <End Role="Application" Type="GloriousFuture.Store.Applications" Multiplicity="*" />
+    <End Role="University" Type="GloriousFuture.Store.Universities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="UniversityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ApplicationSpeciality">
+    <End Role="Application" Type="GloriousFuture.Store.Applications" Multiplicity="*" />
+    <End Role="Speciality" Type="GloriousFuture.Store.Specialities" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="SpecialityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AchievementUser">
+    <End Role="User" Type="GloriousFuture.Store.Users" Multiplicity="1" />
+    <End Role="Achievement" Type="GloriousFuture.Store.Achievements" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Achievement">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GloriousFuture" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="GloriousFutureContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="GloriousFuture.User" />
+          <EntitySet Name="Universities" EntityType="GloriousFuture.University" />
+          <EntitySet Name="EnrollPlans" EntityType="GloriousFuture.EnrollPlan" />
+          <EntitySet Name="UniversityAcceptanceStatistics" EntityType="GloriousFuture.UniversityAcceptanceStatistic" />
+          <EntitySet Name="SpecialityAcceptanceStatistics" EntityType="GloriousFuture.SpecialityAcceptanceStatistic" />
+          <AssociationSet Name="SpecialityEnrollStatisticUniversityEnrollStatistic" Association="GloriousFuture.SpecialityEnrollStatisticUniversityEnrollStatistic">
+            <End Role="SpecialityEnrollStatistic" EntitySet="SpecialityAcceptanceStatistics" />
+            <End Role="UniversityEnrollStatistic" EntitySet="UniversityAcceptanceStatistics" />
+          </AssociationSet>
+          <EntitySet Name="Specialities" EntityType="GloriousFuture.Speciality" />
+          <AssociationSet Name="UniversityEnrollStatisticUniversity" Association="GloriousFuture.UniversityEnrollStatisticUniversity">
+            <End Role="UniversityEnrollStatistic" EntitySet="UniversityAcceptanceStatistics" />
+            <End Role="University" EntitySet="Universities" />
+          </AssociationSet>
+          <AssociationSet Name="SpecialityAcceptanceStatisticSpeciality" Association="GloriousFuture.SpecialityAcceptanceStatisticSpeciality">
+            <End Role="SpecialityAcceptanceStatistic" EntitySet="SpecialityAcceptanceStatistics" />
+            <End Role="Speciality" EntitySet="Specialities" />
+          </AssociationSet>
+          <EntitySet Name="Applications" EntityType="GloriousFuture.Application" />
+          <AssociationSet Name="ApplicationUser" Association="GloriousFuture.ApplicationUser">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Achievements" EntityType="GloriousFuture.Achievement" />
+          <EntitySet Name="ApplicationStatistic_DTO" EntityType="GloriousFuture.ApplicationStatistic_DTO" />
+          <AssociationSet Name="EnrollPlanUniversity" Association="GloriousFuture.EnrollPlanUniversity">
+            <End Role="EnrollPlan" EntitySet="EnrollPlans" />
+            <End Role="University" EntitySet="Universities" />
+          </AssociationSet>
+          <AssociationSet Name="EnrollPlanSpeciality" Association="GloriousFuture.EnrollPlanSpeciality">
+            <End Role="EnrollPlan" EntitySet="EnrollPlans" />
+            <End Role="Speciality" EntitySet="Specialities" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationUniversity" Association="GloriousFuture.ApplicationUniversity">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="University" EntitySet="Universities" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationSpeciality" Association="GloriousFuture.ApplicationSpeciality">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="Speciality" EntitySet="Specialities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AchievementUser" Association="GloriousFuture.FK_AchievementUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Achievement" EntitySet="Achievements" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="QQ" Nullable="true" />
+          <Property Type="Int32" Name="Coins" Nullable="false" />
+          <Property Name="Zone" Type="GloriousFuture.Zone" Nullable="false" />
+          <NavigationProperty Name="Achievement" Relationship="GloriousFuture.FK_AchievementUser" FromRole="User" ToRole="Achievement" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" cg:SetterAccess="Public" />
+          <Property Type="String" Name="UniversityType" Nullable="false" cg:SetterAccess="Public" />
+          <Property Type="String" Name="Kind" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="Phone" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="String" Name="Website" Nullable="true" />
+          <Property Type="String" Name="BriefIntroduction" Nullable="true" />
+          <Property Type="Boolean" Name="IsEducationDepartment" Nullable="false" />
+          <Property Type="Boolean" Name="Is985" Nullable="false" />
+          <Property Type="Boolean" Name="Is211" Nullable="false" />
+          <Property Name="Zone" Type="GloriousFuture.Zone" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EnrollPlan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Year" Nullable="false" />
+          <Property Type="String" Name="Province" Nullable="false" />
+          <Property Type="Int32" Name="PlannedEnrollNumber" Nullable="false" />
+          <Property Type="Guid" Name="UniversitySpecialityId" Nullable="false" />
+          <Property Type="String" Name="Batch" Nullable="false" />
+          <Property Type="Boolean" Name="IsDirectional" Nullable="false" />
+          <NavigationProperty Name="University" Relationship="GloriousFuture.EnrollPlanUniversity" FromRole="EnrollPlan" ToRole="University" />
+          <Property Type="Guid" Name="UniversityId" Nullable="false" />
+          <NavigationProperty Name="Speciality" Relationship="GloriousFuture.EnrollPlanSpeciality" FromRole="EnrollPlan" ToRole="Speciality" />
+          <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UniversityAcceptanceStatistic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Year" Nullable="false" />
+          <Property Type="Double" Name="HighestScore" Nullable="false" />
+          <Property Type="Double" Name="LowestScore" Nullable="false" />
+          <Property Type="Double" Name="AverageScore" Nullable="false" />
+          <Property Type="String" Name="Batch" Nullable="false" />
+          <Property Type="Double" Name="ExceedScore" Nullable="false" />
+          <NavigationProperty Name="University" Relationship="GloriousFuture.UniversityEnrollStatisticUniversity" FromRole="UniversityEnrollStatistic" ToRole="University" />
+          <Property Type="Guid" Name="UniversityId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecialityAcceptanceStatistic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UniversityEnrollStatistic" Relationship="GloriousFuture.SpecialityEnrollStatisticUniversityEnrollStatistic" FromRole="SpecialityEnrollStatistic" ToRole="UniversityEnrollStatistic" />
+          <Property Type="Guid" Name="UniversityEnrollStatisticId" Nullable="false" />
+          <Property Type="Double" Name="HighestScore" Nullable="false" />
+          <Property Type="Double" Name="LowestScore" Nullable="false" />
+          <Property Type="Double" Name="AverageScore" Nullable="false" />
+          <Property Type="String" Name="Province" Nullable="false" />
+          <NavigationProperty Name="Speciality" Relationship="GloriousFuture.SpecialityAcceptanceStatisticSpeciality" FromRole="SpecialityAcceptanceStatistic" ToRole="Speciality" />
+          <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+          </EntityType>
+        <Association Name="SpecialityEnrollStatisticUniversityEnrollStatistic">
+          <End Type="GloriousFuture.SpecialityAcceptanceStatistic" Role="SpecialityEnrollStatistic" Multiplicity="*" />
+          <End Type="GloriousFuture.UniversityAcceptanceStatistic" Role="UniversityEnrollStatistic" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="UniversityEnrollStatistic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SpecialityEnrollStatistic">
+              <PropertyRef Name="UniversityEnrollStatisticId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="UniversityEnrollStatisticUniversity">
+          <End Type="GloriousFuture.UniversityAcceptanceStatistic" Role="UniversityEnrollStatistic" Multiplicity="*" />
+          <End Type="GloriousFuture.University" Role="University" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UniversityEnrollStatistic">
+              <PropertyRef Name="UniversityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SpecialityAcceptanceStatisticSpeciality">
+          <End Type="GloriousFuture.SpecialityAcceptanceStatistic" Role="SpecialityAcceptanceStatistic" Multiplicity="*" />
+          <End Type="GloriousFuture.Speciality" Role="Speciality" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SpecialityAcceptanceStatistic">
+              <PropertyRef Name="SpecialityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Zone">
+          <Property Type="String" Name="City" Nullable="false" />
+          <Property Type="String" Name="Province" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Year" Nullable="false" />
+          <Property Type="String" Name="Batch" Nullable="false" />
+          <Property Type="Int32" Name="Sequence" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="GloriousFuture.ApplicationUser" FromRole="Application" ToRole="User" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <NavigationProperty Name="University" Relationship="GloriousFuture.ApplicationUniversity" FromRole="Application" ToRole="University" />
+          <Property Type="Guid" Name="UniversityId" Nullable="false" />
+          <NavigationProperty Name="Speciality" Relationship="GloriousFuture.ApplicationSpeciality" FromRole="Application" ToRole="Speciality" />
+          <Property Type="Guid" Name="SpecialityId" Nullable="false" />
+        </EntityType>
+        <Association Name="ApplicationUser">
+          <End Type="GloriousFuture.Application" Role="Application" Multiplicity="*" />
+          <End Type="GloriousFuture.User" Role="User" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Achievement">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="Score" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="GloriousFuture.FK_AchievementUser" FromRole="Achievement" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ApplicationStatistic_DTO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="HighestScore" Nullable="false" />
+          <Property Type="Double" Name="LowestScore" Nullable="false" />
+          <Property Type="Double" Name="AverageScore" Nullable="false" />
+          <Property Type="Int32" Name="Totality" Nullable="false" />
+          <Property Type="Int32" Name="ScoreRank" Nullable="false" />
+        </EntityType>
+        <Association Name="EnrollPlanUniversity">
+          <End Type="GloriousFuture.EnrollPlan" Role="EnrollPlan" Multiplicity="*" />
+          <End Type="GloriousFuture.University" Role="University" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EnrollPlan">
+              <PropertyRef Name="UniversityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EnrollPlanSpeciality">
+          <End Type="GloriousFuture.EnrollPlan" Role="EnrollPlan" Multiplicity="*" />
+          <End Type="GloriousFuture.Speciality" Role="Speciality" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EnrollPlan">
+              <PropertyRef Name="SpecialityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationUniversity">
+          <End Type="GloriousFuture.Application" Role="Application" Multiplicity="*" />
+          <End Type="GloriousFuture.University" Role="University" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="UniversityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationSpeciality">
+          <End Type="GloriousFuture.Application" Role="Application" Multiplicity="*" />
+          <End Type="GloriousFuture.Speciality" Role="Speciality" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="SpecialityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AchievementUser">
+          <End Type="GloriousFuture.User" Role="User" Multiplicity="1" />
+          <End Type="GloriousFuture.Achievement" Role="Achievement" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Achievement">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GloriousFutureStoreContainer" CdmEntityContainer="GloriousFutureContainer">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="QQ" ColumnName="QQ" />
+          <ScalarProperty Name="Coins" ColumnName="Coins" />
+          <ComplexProperty Name="Zone" TypeName="GloriousFuture.Zone">
+            <ScalarProperty Name="City" ColumnName="Zone_City" />
+            <ScalarProperty Name="Province" ColumnName="Zone_Province" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.University)">
+        <MappingFragment StoreEntitySet="Universities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UniversityType" ColumnName="UniversityType" />
+          <ScalarProperty Name="Kind" ColumnName="Kind" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="BriefIntroduction" ColumnName="BriefIntroduction" />
+          <ScalarProperty Name="IsEducationDepartment" ColumnName="IsEducationDepartment" />
+          <ScalarProperty Name="Is985" ColumnName="Is985" />
+          <ScalarProperty Name="Is211" ColumnName="Is211" />
+          <ComplexProperty Name="Zone" TypeName="GloriousFuture.Zone">
+            <ScalarProperty Name="City" ColumnName="Zone_City" />
+            <ScalarProperty Name="Province" ColumnName="Zone_Province" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollPlans">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.EnrollPlan)">
+        <MappingFragment StoreEntitySet="EnrollPlans">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="PlannedEnrollNumber" ColumnName="PlannedEnrollNumber" />
+          <ScalarProperty Name="UniversitySpecialityId" ColumnName="UniversitySpecialityId" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="IsDirectional" ColumnName="IsDirectional" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UniversityAcceptanceStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.UniversityAcceptanceStatistic)">
+        <MappingFragment StoreEntitySet="UniversityAcceptanceStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="ExceedScore" ColumnName="ExceedScore" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialityAcceptanceStatistics">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.SpecialityAcceptanceStatistic)">
+        <MappingFragment StoreEntitySet="SpecialityAcceptanceStatistics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UniversityEnrollStatisticId" ColumnName="UniversityEnrollStatisticId" />
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specialities">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.Speciality)">
+        <MappingFragment StoreEntitySet="Specialities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.Application)">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UniversityId" ColumnName="UniversityId" />
+          <ScalarProperty Name="SpecialityId" ColumnName="SpecialityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Achievements">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.Achievement)">
+        <MappingFragment StoreEntitySet="Achievements">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationStatistic_DTO">
+      <EntityTypeMapping TypeName="IsTypeOf(GloriousFuture.ApplicationStatistic_DTO)">
+        <MappingFragment StoreEntitySet="ApplicationStatistic_DTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HighestScore" ColumnName="HighestScore" />
+          <ScalarProperty Name="LowestScore" ColumnName="LowestScore" />
+          <ScalarProperty Name="AverageScore" ColumnName="AverageScore" />
+          <ScalarProperty Name="Totality" ColumnName="Totality" />
+          <ScalarProperty Name="ScoreRank" ColumnName="ScoreRank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="GloriousFuture" DisplayType="true" >
+        <EntityTypeShape EntityType="GloriousFuture.User" Width="2.625" PointX="13.375" PointY="1.75" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="GloriousFuture.University" Width="3" PointX="4.875" PointY="0.5" Height="3.7109993489583326" />
+        <EntityTypeShape EntityType="GloriousFuture.EnrollPlan" Width="3" PointX="4.375" PointY="5.625" Height="3.1340950520833335" />
+        <EntityTypeShape EntityType="GloriousFuture.UniversityAcceptanceStatistic" Width="2.75" PointX="9.5" PointY="1.125" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="GloriousFuture.SpecialityAcceptanceStatistic" Width="2.75" PointX="8.75" PointY="10.625" Height="2.7494921874999996" />
+        <AssociationConnector Association="GloriousFuture.SpecialityEnrollStatisticUniversityEnrollStatistic">
+          <ConnectorPoint PointX="10.5" PointY="10.625" />
+          <ConnectorPoint PointX="10.5" PointY="3.8744921874999996" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="GloriousFuture.Speciality" Width="1.875" PointX="4.625" PointY="9.625" Height="1.2110807291666665" />
+        <AssociationConnector Association="GloriousFuture.UniversityEnrollStatisticUniversity" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.5" PointY="1.6660530657716608" />
+          <ConnectorPoint PointX="9.125" PointY="1.6660530657716608" />
+          <ConnectorPoint PointX="9.125" PointY="2.153525285731698" />
+          <ConnectorPoint PointX="7.875" PointY="2.153525285731698" />
+        </AssociationConnector>
+        <AssociationConnector Association="GloriousFuture.SpecialityAcceptanceStatisticSpeciality">
+          <ConnectorPoint PointX="8.75" PointY="12.105286958333334" />
+          <ConnectorPoint PointX="5.5625" PointY="12.105286958333334" />
+          <ConnectorPoint PointX="5.5625" PointY="10.836080729166667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="GloriousFuture.Application" Width="2.625" PointX="12.625" PointY="5.25" Height="2.9417936197916656" />
+        <AssociationConnector Association="GloriousFuture.ApplicationUser">
+          <ConnectorPoint PointX="14.3125" PointY="5.25" />
+          <ConnectorPoint PointX="14.3125" PointY="4.3071907552083326" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="GloriousFuture.Achievement" Width="2.75" PointX="17.5" PointY="1.875" Height="1.59568359375" />
+        <EntityTypeShape EntityType="GloriousFuture.ApplicationStatistic_DTO" Width="3" PointX="17.25" PointY="6.625" Height="2.3648893229166656" />
+        <AssociationConnector Association="GloriousFuture.EnrollPlanUniversity">
+          <ConnectorPoint PointX="6.125" PointY="5.625" />
+          <ConnectorPoint PointX="6.125" PointY="4.0186979166666665" />
+        </AssociationConnector>
+        <AssociationConnector Association="GloriousFuture.EnrollPlanSpeciality">
+          <ConnectorPoint PointX="5.5625" PointY="8.7590950520833335" />
+          <ConnectorPoint PointX="5.5625" PointY="9.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="GloriousFuture.ApplicationUniversity">
+          <ConnectorPoint PointX="12.625" PointY="5.3246400481491012" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="5.3246400481491" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="5.3246400481491012" />
+          <ConnectorPoint PointX="7.0312525" PointY="5.3246400481491012" />
+          <ConnectorPoint PointX="7.0312525" PointY="4.0186979166666665" />
+        </AssociationConnector>
+        <AssociationConnector Association="GloriousFuture.ApplicationSpeciality">
+          <ConnectorPoint PointX="13.9375" PointY="8.1917936197916656" />
+          <ConnectorPoint PointX="13.9375" PointY="10.09375" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="10.09375" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="10.09375" />
+          <ConnectorPoint PointX="6.5" PointY="10.09375" />
+        </AssociationConnector>
+        <AssociationConnector Association="GloriousFuture.FK_AchievementUser" >
+          <ConnectorPoint PointX="16" PointY="2.672841796875" />
+          <ConnectorPoint PointX="17.5" PointY="2.672841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
