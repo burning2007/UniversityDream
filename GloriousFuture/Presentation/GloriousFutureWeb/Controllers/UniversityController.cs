@@ -99,15 +99,18 @@ namespace GloriousFutureWeb.Controllers
             return View("Index", universities);
         }
 
-
-        //public ActionResult GetSpeciality(Guid universityId)
-        //{
-        //    var specialites = universityService.GetSpecialitiesByUniversityId(universityId).OrderBy<SpecialityDTO, string>(s => s.MainCategory);
-        //    return View("Speciality", specialites);
-        //}
-
+		[AllowAnonymous]
+		public string Details(Guid universityId)
+		{
+			return "UniversityId is" + universityId.ToString();
+		}
 
 
+		//public ActionResult GetSpeciality(Guid universityId)
+		//{
+		//    var specialites = universityService.GetSpecialitiesByUniversityId(universityId).OrderBy<SpecialityDTO, string>(s => s.MainCategory);
+		//    return View("Speciality", specialites);
+		//}
 
 
 
